@@ -8,5 +8,3 @@ require 'sinatra'
 		session[:password] = params[:password]
 		erb :index
 	end
-
-	#kevins push
