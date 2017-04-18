@@ -9,11 +9,7 @@ class Password
 		password[/[a-zA-Z0-9]{6,}/] == password
 	end
 
-	# def password_match(password)
-	# 	if password.match(password)
-	# 		true
-	# 	else
-	# 		false
-	# 	end
-	# end
+	def password_match(confirm)
+		password.include?(confirm)
+	end
 end
