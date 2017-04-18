@@ -1,6 +1,19 @@
-<form action="/index" method="post">
-Sign In:
-	<input type="text" name="email" placeholder="EMAIL">
-	<input type="password" name="password" placeholder="PASSWORD">
-	</form>
-	<input type="submit" value="CREATE NEW ACCOUNT">
+	<form action="/index">
+  <div class="container">
+    <p><label><b>Email</b></label></p>
+    <p><input type="text" placeholder="Enter Email" name="email" required></p>
+
+    <label><b>Password</b></label>
+    <p><input type="password" placeholder="Enter Password" name="psw" required></p>
+
+    <label><b>Repeat Password</b></label>
+    <p><input type="password" placeholder="Repeat Password" name="psw-repeat" required></p>
+    <input type="checkbox" checked="checked"> Remember me
+
+
+    <div class="clearfix">
+    	<button type="submit" class="button">Sign Up</button>
+      <button type="button"  class="button">Cancel</button>
+    </div>
+  </div>
+</form>

@@ -7,4 +7,5 @@ require 'sinatra'
 		session[:email] = params[:email]
 		session[:password] = params[:password]
 		erb :index
+	end
 
