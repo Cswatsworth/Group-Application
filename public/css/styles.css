@@ -48,3 +48,10 @@ img {
     width: 10%;
     position: top left;
 }
+
+header {
+  border: double;
+  border-color: blue;
+  font-style: italic;
+  text-decoration: underline;
+}
