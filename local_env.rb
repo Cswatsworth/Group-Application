@@ -1,5 +1,0 @@
-ENV['host'] = 'mmapplication.cghc5iiuyixp.us-west-2.rds.amazonaws.com'
-ENV['port'] = '5432'
-ENV['db_name'] = 'mmapplication'
-ENV['user'] = 'mmapplication'
-ENV['password'] = 'mmapplication'
