@@ -1,12 +1,25 @@
 require 'sinatra'
-# require_relative 'functions.rb'
+require_relative 'functions.rb'
+
+load './local_env.rb' if File.exists?('./local_env.rb')
+
+db_params = {
+    host: ENV['host'],
+    port: ENV['port'],
+    dbname: ENV['db_name'],
+    user: ENV['user'],
+    password: ENV['password']
+}
+
+db = PG::Connection.new(db_params)
 
 	enable :sessions
 
 	get '/' do
 		session[:backend_email] = params[:email]
 		session[:backend_password] = params[:password]
-		erb :index
+		mmapplication = db.exec("SELECT email, password FROM mmapplication");
+		erb :index, locals: {mmapplication: mmapplication}
 	end
 
 	post'/signup' do
