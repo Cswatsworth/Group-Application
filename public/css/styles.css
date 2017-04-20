@@ -50,8 +50,12 @@ img {
 }
 
 header {
-  border: double;
-  border-color: blue;
-  font-style: italic;
-  text-decoration: underline;
+  font-family: cursive;
+  font-size: 50px;
+  color: #03255b;
+  border-style: double;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: white;
+  border-bottom-color: #03255b;
 }
