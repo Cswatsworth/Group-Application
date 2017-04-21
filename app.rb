@@ -26,21 +26,30 @@ db = PG::Connection.new(db_params)
 		session[:email] = params[:email]
 		session[:password] = params[:password]
 		db.exec("INSERT INTO login(email, password) VALUES('#{session[:email]}', '#{session[:password]}')");
-		redirect '/'
+		redirect '/page1'
 	end
 
-	# post '/signup' do
-	# 	erb :page1
-	# end
-	# 	session[:backend_1st_name] = params[:first]
-	# 	session[:backend_lst_name] = params[:last]
-	# 	session[:backend_street] = params[:street]
-	# 	session[:backend_city] = params[:city]
-	# 	session[:backend_state] = params[:state]
-	# 	session[:backend_zip] = params[:zip]
-	# 	erb :page1, :locals => {first: session[:backend_1st_name], last: session[:backend_lst_name], street: session[:backend_street], city: session[:backend_city], state: session[:backend_state], zip: session[:backend_zip]}
-	# end
+	get '/page1' do
+		personalinfo = db.exec("SELECT first, last, street, city, state, zip, phonenumber, contactemail FROM personalinfo");
+		erb :page1, locals: {personalinfo: personalinfo}
+		# session[:backend_1st_name] = params[:first]
+		# session[:backend_lst_name] = params[:last]
+		# session[:backend_street] = params[:street]
+		# session[:backend_city] = params[:city]
+		# session[:backend_state] = params[:state]
+		# session[:backend_zip] = params[:zip]
+		# erb :page1, :locals => {first: session[:backend_1st_name], last: session[:backend_lst_name], street: session[:backend_street], city: session[:backend_city], state: session[:backend_state], zip: session[:backend_zip]}
+	end
 
-	# get '/signin' do
-	#  	erb :signin
-	# end
+	post '/personalinfo' do
+		session[:first] = params[:first]
+		session[:last] = params[:last]
+		session[:street] = params[:street]
+		session[:city] = params[:city]
+		session[:state] = params[:state]
+		session[:zip] = params[:zip]
+		session[:phonenumber] = params[:phonenumber]
+		session[:contactemail] = params[:contactemail]
+		db.exec("INSERT INTO personalinfo(first, last, street, city, state, zip, phonenumber, contactemail) VALUES('#{session[:first]}, '#{session[:last]}, '#{session[:street]}, '#{session[:city]}, '#{session[:state]}, '#{session[:zip]}, '#{session[:phonenumber]}, '#{session[:contactemail]}')");
+		redirect '/personalinfo'
+	end
