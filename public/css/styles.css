@@ -45,12 +45,12 @@ button {
    background: #1b435e;
    }
 img {
-    width: 10%;
+    width: 5%;
     position: top left;
 }
 
 header {
-  font-family: cursive;
+  font-family: helvetica;
   font-size: 50px;
   color: #03255b;
   border-style: double;
