@@ -51,11 +51,29 @@ img {
 
 header {
   font-family: Helvetica;
-  font-size: 50px;
+  font-size: 40px;
   color: #03255b;
-  border-style: double;
-  border-top-color: white;
+  border-style: none;
+/*  border-width: 5px;*/
+ /* border-top-color: white;
   border-left-color: white;
-  border-right-color: white;
-  border-bottom-color: #03255b;
+  border-right-color: white;*/
+ /* border-bottom-color: #03255b;*/
+}
+
+hr {
+  border-width: 9px;
+  border-color: #03255b;
+}
+
+.logo {
+  position: relative;
+  width: 500px;
+  /*height: 500px*/
+  float: left;
+  margin-top: 16px;
+}
+
+#nav {
+
 }
