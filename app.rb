@@ -50,6 +50,13 @@ db = PG::Connection.new(db_params)
 		session[:zip] = params[:zip]
 		session[:phonenumber] = params[:phonenumber]
 		session[:contactemail] = params[:contactemail]
-		db.exec("INSERT INTO personalinfo(first, last, street, city, state, zip, phonenumber, contactemail) VALUES('#{session[:first]}, '#{session[:last]}, '#{session[:street]}, '#{session[:city]}, '#{session[:state]}, '#{session[:zip]}, '#{session[:phonenumber]}, '#{session[:contactemail]}')");
-		redirect '/personalinfo'
+		db.exec("INSERT INTO personalinfo(first, last, street, city, state, zip, phonenumber, contactemail) VALUES('#{session[:first]}', '#{session[:last]}', '#{session[:street]}', '#{session[:city]}', '#{session[:state]}', '#{session[:zip]}', '#{session[:phonenumber]}', '#{session[:contactemail]}')");
+		redirect '/page2'
+	end
+
+	get '/page2' do
+		erb :page1
+	end
+
+	post '/page2' do
 	end
