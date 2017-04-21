@@ -17,13 +17,21 @@ db = PG::Connection.new(db_params)
 	enable :sessions
 
 	get '/' do
-		# session[:backend_email] = params[:email]
-		# session[:backend_password] = params[:password]
-		mmapplication = db.exec("SELECT email, password FROM mmapplication");
-		erb :index, locals: {mmapplication: mmapplication}
+		login = db.exec("SELECT email, password FROM login");
+		erb :index, locals: {login: login}
 	end
 
-	# post'/signup' do
+
+	post'/login' do
+		session[:email] = params[:email]
+		session[:password] = params[:password]
+		db.exec("INSERT INTO login(email, password) VALUES('#{session[:email]}', '#{session[:password]}')");
+		redirect '/'
+	end
+
+	# post '/signup' do
+	# 	erb :page1
+	# end
 	# 	session[:backend_1st_name] = params[:first]
 	# 	session[:backend_lst_name] = params[:last]
 	# 	session[:backend_street] = params[:street]
