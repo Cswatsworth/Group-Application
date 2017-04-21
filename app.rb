@@ -32,13 +32,6 @@ db = PG::Connection.new(db_params)
 	get '/page1' do
 		personalinfo = db.exec("SELECT first, last, street, city, state, zip, phonenumber, contactemail FROM personalinfo");
 		erb :page1, locals: {personalinfo: personalinfo}
-		# session[:backend_1st_name] = params[:first]
-		# session[:backend_lst_name] = params[:last]
-		# session[:backend_street] = params[:street]
-		# session[:backend_city] = params[:city]
-		# session[:backend_state] = params[:state]
-		# session[:backend_zip] = params[:zip]
-		# erb :page1, :locals => {first: session[:backend_1st_name], last: session[:backend_lst_name], street: session[:backend_street], city: session[:backend_city], state: session[:backend_state], zip: session[:backend_zip]}
 	end
 
 	post '/personalinfo' do
@@ -51,12 +44,20 @@ db = PG::Connection.new(db_params)
 		session[:phonenumber] = params[:phonenumber]
 		session[:contactemail] = params[:contactemail]
 		db.exec("INSERT INTO personalinfo(first, last, street, city, state, zip, phonenumber, contactemail) VALUES('#{session[:first]}', '#{session[:last]}', '#{session[:street]}', '#{session[:city]}', '#{session[:state]}', '#{session[:zip]}', '#{session[:phonenumber]}', '#{session[:contactemail]}')");
-		redirect '/page2'
+		redirect '/questionpg1'
 	end
 
-	get '/page2' do
-		erb :page1
+	get '/questionpg1' do
+		questions = db.exec("SELECT question1, question2, question3, question4, question5 FROM questions");
+		erb :questionpg1, locals: {questions: questions}
 	end
 
-	post '/page2' do
+	post '/questions' do
+		session[:question1] = params[:question1]
+		session[:question2] = params[:question2]
+		session[:question3] = params[:question3]
+		session[:question4] = params[:question4]
+		session[:question5] = params[:question5]
+		db.exec("INSERT INTO questions(question1, question2, question3, question4, question5) VALUES('#{session[:question1]}', '#{session[:question2]}', '#{session[:question3]}', '#{session[:question4]}', '#{session[:question5]}')");
+		redirect '/questions'
 	end
