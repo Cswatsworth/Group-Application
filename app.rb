@@ -59,11 +59,11 @@ db = PG::Connection.new(db_params)
 		session[:question4] = params[:question4]
 		session[:question5] = params[:question5]
 		db.exec("INSERT INTO questions(question1, question2, question3, question4, question5) VALUES('#{session[:question1]}', '#{session[:question2]}', '#{session[:question3]}', '#{session[:question4]}', '#{session[:question5]}')");
-		redirect '/questionspg2'
+		redirect '/questionpg2'
 	end
 
 	get '/questionpg2' do
-		questions2 = db.exec("SELECT question1, question2, question3, question4, question5 FROM questionspt2");
+		questionspt2 = db.exec("SELECT question1, question2, question3, question4, question5 FROM questionspt2");
 		erb :questionpg2, locals: {questionspt2: questionspt2}
 	end
 
