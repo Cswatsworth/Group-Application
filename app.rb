@@ -47,6 +47,16 @@ db = PG::Connection.new(db_params)
 		redirect '/questionpg1'
 	end
 
+# Chad, try the following snippet and see if you can adjust it to make it work. You may need to adjust column names
+# and you may not want to show the password to the user. You will need to create relationships between the 
+# tables before this will work. It will eliminate the block above. Well, at least most of it. 
+
+	# get '/account' do
+	# 	accountinfo=db.exec("SELECT first, last, street, state, city, zip, phonenumber, contactemail, password 
+	# 		FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
+	# 	erb :account, locals: {accountinfo: accountinfo}
+	# end
+
 	get '/questionpg1' do
 		questions = db.exec("SELECT question1, question2, question3, question4, question5 FROM questions");
 		erb :questionpg1, locals: {questions: questions}
