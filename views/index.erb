@@ -1,9 +1,9 @@
   
 <center><div class="container rounded-green" >
     <form action="/login" method="post">
-      <b><p>Email</b><input type="text" placeholder="Enter Email" name="email"></p>
+      <b><p>Email</b><input type="text" placeholder="Enter Email" name="email" required></p>
 
-      <b><p>Password</b><input type="password" placeholder="Enter Password" name="password"></p>
+      <b><p>Password</b><input type="password" placeholder="Enter Password" name="password" required></p>
 
       <!-- <b>Repeat Password</b>
       <p><input type="password" placeholder="Repeat Password" name="password_repeat" required></p> -->
@@ -39,6 +39,9 @@
     <meta name="google-signin-client_id" content="182370847863-48of9fa5cjevk9fqrd5jta7vredjr16e.apps.googleusercontent.com">
     <div class="g-signin2" data-onsuccess="onSignIn"></div> 
   </form>
+  <form action='/delete_table' method='post'>
+    <input type = "submit" value = "Delete Data">
+    </form>
 
   </p>
 </div>

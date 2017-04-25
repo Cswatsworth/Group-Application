@@ -59,6 +59,41 @@ db = PG::Connection.new(db_params)
 		session[:question4] = params[:question4]
 		session[:question5] = params[:question5]
 		db.exec("INSERT INTO questions(question1, question2, question3, question4, question5) VALUES('#{session[:question1]}', '#{session[:question2]}', '#{session[:question3]}', '#{session[:question4]}', '#{session[:question5]}')");
-		redirect '/questions'
+		redirect '/questionpg2'
 	end
 
+<<<<<<< HEAD
+=======
+	get '/questionpg2' do
+		questionspt2 = db.exec("SELECT question1, question2, question3, question4, question5 FROM questionspt2");
+		erb :questionpg2, locals: {questionspt2: questionspt2}
+	end
+
+	post '/questionspt2' do
+		session[:pg2question1] = params[:pg2question1]
+		session[:pg2question2] = params[:pg2question2]
+		session[:pg2question3] = params[:pg2question3]
+		session[:pg2question4] = params[:pg2question4]
+		session[:pg2question5] = params[:pg2question5]
+		db.exec("INSERT INTO questionspt2(question1, question2, question3, question4, question5) VALUES('#{session[:pg2question1]}', '#{session[:pg2question2]}', '#{session[:pg2question3]}', '#{session[:pg2question4]}', '#{session[:pg2question5]}')");
+		redirect '/questionpg3'
+	
+	end
+
+	post '/delete_table' do
+		db.exec("DELETE FROM login");
+		redirect '/'
+	end
+
+	post '/delete_table1' do
+		db.exec("DELETE FROM personalinfo ");
+		redirect '/'
+	end
+
+	post '/delete_table2' do
+		db.exec("DELETE FROM questions");
+		redirect '/'
+	end
+
+
+>>>>>>> 2e4bf9981bbc75e5fbdef595001086384d28377a

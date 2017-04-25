@@ -95,7 +95,7 @@ h3 {
 
 .rounded-green{
   background-color: #66C3AD;
-  color: white;
+  color: black;
   font-weight: bold;
   padding: 10px;
   -moz-border-radius: 5px;
@@ -104,7 +104,7 @@ h3 {
 
 .rounded-purple{
   background-color: #68679F;
-  color: white;
+  color: black;
   font-weight: bold;
   padding: 10px;
   -moz-border-radius: 5px;

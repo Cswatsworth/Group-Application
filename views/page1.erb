@@ -3,25 +3,25 @@
 		<p>PLEASE ENTER CONTACT INFORMATION</p>
 
 		<p>
-		<label for="first">First Name</label><input type="text" name="first" placeholder="YOUR FIRST NAME">
+		<label for="first">First Name</label><input type="text" name="first" placeholder="YOUR FIRST NAME" required>
 		</p>
 		<p>
-		<label for="last">Last Name</label><input type="text" name="last" placeholder="YOUR LAST NAME">
+		<label for="last">Last Name</label><input type="text" name="last" placeholder="YOUR LAST NAME" required>
 		</p>
 		<p>
-		<label for="street">Address 1</label><input type="text" name="address1" placeholder="ADDRESS 1">
+		<label for="street">Address 1</label><input type="text" name="address1" placeholder="ADDRESS 1" required>
 		</p>
 		<p>
 		<label for="street">Address 2</label><input type="text" name="address1" placeholder="ADDRESS 2">
 		</p>
 		<p>
-		<label for="city">City</label><input type="text" name="city" placeholder="YOUR CITY">
+		<label for="city">City</label><input type="text" name="city" placeholder="YOUR CITY" required>
 		</p>
 		<p>
 		<div class="form-group">
 	<label for="state" class="col-sm-2 control-label">Choose state:</label>
 	<div class="col-sm-10">
-		<select class="form-control" id="state" name="state">
+		<select class="form-control" id="state" name="state" required>
 			<option value="">N/A</option>
 			<option value="AK">Alaska</option>
 			<option value="AL">Alabama</option>
@@ -78,13 +78,13 @@
 		</select>
 	</div>
 </div>
-		<label for="zip">Zip</label><input type="number" name="zip" placeholder="5 DIGIT ZIP">
+		<label for="zip">Zip</label><input type="text" name="zip" placeholder="5 DIGIT ZIP" required>
 		</p>
 		<p>
-		<label for="phonenumber">Phonenumber</label><input type="text" name="phonenumber" placeholder="+ (XXX) XXX-XXXX">
+		<label for="phonenumber">Phonenumber</label><input type="text" name="phonenumber" placeholder="+ (XXX) XXX-XXXX" required>
 		</p>
 		<p>
-		<label for="contactemail">Email Address</label><input type="text" name="contactemail" placeholder="YOUR@EMAILADDRESS.COM">
+		<label for="contactemail">Email Address</label><input type="text" name="contactemail" placeholder="YOUR@EMAILADDRESS.COM" required>
 		</p>
 		<p>
 		<button type="submit" class="button">Submit</button>
@@ -93,4 +93,7 @@
 		<button type="submit" class="button">Back</button>
 		</p>
 	</form>
+	  <form action='/delete_table1' method='post'>
+    <input type = "submit" value = "Delete Data">
+    </form>
 </div>
