@@ -1,17 +1,3 @@
-/* Clear floats */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-    .button {
-        width: 100%;
-    }
-}
-
 button {
    border-top: 1px solid #96d1f8;
    background: #65a9d7;
@@ -44,36 +30,87 @@ button {
    border-top-color: #1b435e;
    background: #1b435e;
    }
-img {
-    width: 20%;
+
+.question {
+  width: 50%rem;
+}
+
+div.bg {
+  background: url(http://www.minedminds.org/images/MM.jpg) no-repeat;
+  opacity: 0.5;
+  width: max-width;
+  height: auto;
+  }
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+
+.form {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+
+.img {
+    width: max-width;
+    height: auto;
     position: top left;
-}
+  }
 
-header {
+h2 {
   font-family: Helvetica;
-  font-size: 40px;
+  font-size: 50px;
   color: #03255b;
-  border-style: none;
-/*  border-width: 5px;*/
- /* border-top-color: white;
-  border-left-color: white;
-  border-right-color: white;*/
- /* border-bottom-color: #03255b;*/
+  }
+
+h3 {
+  color: #03255b;
 }
 
-hr {
+.hr {
   border-width: 9px;
-  border-color: #03255b;
-}
+  border-color: #1D297B;
+  }
 
 .logo {
   position: relative;
-  width: 500px;
-  /*height: 500px*/
+  width: 10px;
+  height: 10px
   float: left;
   margin-top: 16px;
 }
 
-#nav {
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .button {
+      width: 100%;
+      }
+    }
+
+.rounded-green{
+  background-color: #66C3AD;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  }
+
+.rounded-purple{
+  background-color: #68679F;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  }
+
+/*#nav {
 
 }

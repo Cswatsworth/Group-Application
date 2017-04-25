@@ -9,17 +9,27 @@
 
 	<link href ='css/styles.css' rel='stylesheet'>
 	</head>
-
-<header class>
-	<div class="container" class="logo">
-		<img src="http://www.minedminds.org/images/MM.jpg">	
-		<center>Mined Minds Bootcamp Application Form</center>
+	<body>
+	<div class="container">
+		<nav class="navbar navbar-light bg-faded">
+			  <a class="navbar-brand" href="http://www.minedminds.org">
+			    <img src="http://www.minedminds.org/images/MM.jpg" width="120px" height="auto" class="d-inline-block align-top" alt="Mined Minds Logo link to minedminds.org">
+			  </a>
+			  <h2>Mined Minds Bootcamp Application Form</h2>
+		</nav>
 	</div>
-<hr class="hr">
-</header>
-	
-<%=yield%>
-    
+
+		<!-- <div class="container" class="navbar navbar-fixed-top">
+			<div class="logo" class="img">
+				<a href="http://www.minedminds.org"><img src="http://www.minedminds.org/images/MM.jpg" alt="Mined Minds Logo"></a></div>
+				<center>Mined Minds Bootcamp Application Form</center>
+			</div> -->
+			<hr class="hr">
+		</header>
+
+	<div>
+		<%=yield%>
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
