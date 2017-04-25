@@ -62,8 +62,6 @@ db = PG::Connection.new(db_params)
 		redirect '/questionpg2'
 	end
 
-<<<<<<< HEAD
-=======
 	get '/questionpg2' do
 		questionspt2 = db.exec("SELECT question1, question2, question3, question4, question5 FROM questionspt2");
 		erb :questionpg2, locals: {questionspt2: questionspt2}
@@ -95,5 +93,3 @@ db = PG::Connection.new(db_params)
 		redirect '/'
 	end
 
-
->>>>>>> 2e4bf9981bbc75e5fbdef595001086384d28377a
