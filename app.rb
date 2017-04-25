@@ -124,9 +124,12 @@ db = PG::Connection.new(db_params)
 		redirect '/'
 	end
 
+<<<<<<< HEAD
 	post '/delete_table3' do
 		db.exec("DELETE FROM questionspt2");
 		redirect '/'
 	end
 
 
+=======
+>>>>>>> 9f3bd7fcb1e6dc480a31c28483c826227795b3f7
