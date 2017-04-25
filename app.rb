@@ -61,3 +61,4 @@ db = PG::Connection.new(db_params)
 		db.exec("INSERT INTO questions(question1, question2, question3, question4, question5) VALUES('#{session[:question1]}', '#{session[:question2]}', '#{session[:question3]}', '#{session[:question4]}', '#{session[:question5]}')");
 		redirect '/questions'
 	end
+
