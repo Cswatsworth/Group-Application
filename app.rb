@@ -16,6 +16,7 @@ db = PG::Connection.new(db_params)
 
 	enable :sessions
 
+
 	get '/' do
 		login = db.exec("SELECT email, password FROM login");
 		erb :index, locals: {login: login}
@@ -63,20 +64,50 @@ db = PG::Connection.new(db_params)
 	end
 
 	get '/questionpg2' do
-		questionspt2 = db.exec("SELECT question1, question2, question3, question4, question5 FROM questionspt2");
+		questionspt2 = db.exec("SELECT question6, question7, question8, question9, question10 FROM questionspt2");
 		erb :questionpg2, locals: {questionspt2: questionspt2}
 	end
 
 	post '/questionspt2' do
-		session[:pg2question1] = params[:pg2question1]
-		session[:pg2question2] = params[:pg2question2]
-		session[:pg2question3] = params[:pg2question3]
-		session[:pg2question4] = params[:pg2question4]
-		session[:pg2question5] = params[:pg2question5]
-		db.exec("INSERT INTO questionspt2(question1, question2, question3, question4, question5) VALUES('#{session[:pg2question1]}', '#{session[:pg2question2]}', '#{session[:pg2question3]}', '#{session[:pg2question4]}', '#{session[:pg2question5]}')");
+		session[:question6] = params[:question6]
+		session[:question7] = params[:question7]
+		session[:question8] = params[:question8]
+		session[:question9] = params[:question9]
+		session[:question10] = params[:questio10]
+		db.exec("INSERT INTO questionspt2(question6, question7, question8, question9, question10) VALUES('#{session[:question6]}', '#{session[:question7]}', '#{session[:question8]}', '#{session[:question9]}', '#{session[:question10]}')");
 		redirect '/questionpg3'
 	
 	end
+
+	get '/questionpg3' do
+		questionspt3 = db.exec("SELECT question11, question12, question13, question14, question15 FROM questionspt3");
+		erb :questionpg3, locals: {questionspt3: questionspt3}
+	end
+
+	post '/questionspt3' do
+		session[:question11] = params[:question11]
+		session[:question12] = params[:question12]
+		session[:question13] = params[:question13]
+		session[:question14] = params[:question14]
+		session[:question15] = params[:question15]
+		db.exec("INSERT INTO questionspt3(question11, question12, question13, question14, question15) VALUES('#{session[:question11]}', '#{session[:question12]}', '#{session[:question13]}', '#{session[:question14]}', '#{session[:question15]}')");
+		redirect '/questionpg4'
+	end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	post '/delete_table' do
 		db.exec("DELETE FROM login");
@@ -90,6 +121,11 @@ db = PG::Connection.new(db_params)
 
 	post '/delete_table2' do
 		db.exec("DELETE FROM questions");
+		redirect '/'
+	end
+
+	post '/delete_table3' do
+		db.exec("DELETE FROM questionspt2");
 		redirect '/'
 	end
 
