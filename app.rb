@@ -65,6 +65,7 @@ db = PG::Connection.new(db_params)
 	get '/questionpg2' do
 		questions2 = db.exec("SELECT question1, question2, question3, question4, question5 FROM questionspt2");
 		erb :questionpg2, locals: {questionspt2: questionspt2}
+	end
 
 	post '/questionspt2' do
 		session[:pg2question1] = params[:pg2question1]
@@ -77,24 +78,17 @@ db = PG::Connection.new(db_params)
 	
 	end
 
-
-
-
-
-
-
-
 	post '/delete_table' do
 		db.exec("DELETE FROM login");
 		redirect '/'
 	end
 
-		post '/delete_table1' do
+	post '/delete_table1' do
 		db.exec("DELETE FROM personalinfo ");
 		redirect '/'
 	end
 
-		post '/delete_table2' do
+	post '/delete_table2' do
 		db.exec("DELETE FROM questions");
 		redirect '/'
 	end
