@@ -16,6 +16,12 @@ db = PG::Connection.new(db_params)
 
 	enable :sessions
 
+	get '/accountinfo' do
+		accountinfo = db.exec("SELECT first, last, street, state, city, zip, phonenumber, contactemail, password FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
+		erb :index, locals: {accountinfo: accountinfo}
+		redirect '/page1'
+	end
+
 
 	get '/' do
 		login = db.exec("SELECT email, password FROM login");
@@ -52,11 +58,6 @@ db = PG::Connection.new(db_params)
 # and you may not want to show the password to the user. You will need to create relationships between the 
 # tables before this will work. It will eliminate the block above. Well, at least most of it. 
 
-	# get '/account' do
-	# 	accountinfo=db.exec("SELECT first, last, street, state, city, zip, phonenumber, contactemail, password 
-	# 		FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
-	# 	erb :account, locals: {accountinfo: accountinfo}
-	# end
 
 	get '/questionpg1' do
 		questions = db.exec("SELECT question1, question2, question3, question4, question5 FROM questions");
@@ -136,5 +137,10 @@ db = PG::Connection.new(db_params)
 
 	post '/delete_table3' do
 		db.exec("DELETE FROM questionspt2");
+		redirect '/'
+	end
+
+		post '/delete_table4' do
+		db.exec("DELETE FROM questionspt3");
 		redirect '/'
 	end
