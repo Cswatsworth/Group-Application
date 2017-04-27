@@ -37,7 +37,7 @@ db = PG::Connection.new(db_params)
 	end
 
 	get '/page1' do
-		personalinfo = db.exec("SELECT first, last, street, city, state, zip, phonenumber, contactemail FROM personalinfo");
+		personalinfo = db.exec("SELECT first, last, street, city, state, zip, phonenumber, contactemail, password FROM personalinfo");
 		erb :page1, locals: {personalinfo: personalinfo}
 	end
 
@@ -50,7 +50,8 @@ db = PG::Connection.new(db_params)
 		session[:zip] = params[:zip]
 		session[:phonenumber] = params[:phonenumber]
 		session[:contactemail] = params[:contactemail]
-		db.exec("INSERT INTO personalinfo(first, last, street, city, state, zip, phonenumber, contactemail) VALUES('#{session[:first]}', '#{session[:last]}', '#{session[:street]}', '#{session[:city]}', '#{session[:state]}', '#{session[:zip]}', '#{session[:phonenumber]}', '#{session[:contactemail]}')");
+		session[:password] = params[:password]
+		db.exec("INSERT INTO personalinfo(first, last, street, city, state, zip, phonenumber, contactemail, password) VALUES('#{session[:first]}', '#{session[:last]}', '#{session[:street]}', '#{session[:city]}', '#{session[:state]}', '#{session[:zip]}', '#{session[:phonenumber]}', '#{session[:contactemail]}', '#{session[:password]}')");
 		redirect '/questionpg1'
 	end
 
