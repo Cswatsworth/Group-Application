@@ -31,13 +31,13 @@ db = PG::Connection.new(db_params)
 	end
 
 	get '/accountinfo' do
-		accountinfo = db.exec("SELECT first, last, street, state, city, zip, phonenumber, contactemail, password FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
+		accountinfo = db.exec("SELECT first, last, street, state, city, zip, phonenumber, email FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
 		erb :index, locals: {accountinfo: accountinfo}
 		redirect '/page1'
 	end
 
 	get '/page1' do
-		personalinfo = db.exec("SELECT first, last, street, city, state, zip, phonenumber, contactemail, password FROM personalinfo");
+		personalinfo = db.exec("SELECT first, last, street, city, state, zip, phonenumber, email FROM personalinfo");
 		erb :page1, locals: {personalinfo: personalinfo}
 	end
 
@@ -49,9 +49,8 @@ db = PG::Connection.new(db_params)
 		session[:state] = params[:state]
 		session[:zip] = params[:zip]
 		session[:phonenumber] = params[:phonenumber]
-		session[:contactemail] = params[:contactemail]
-		session[:password] = params[:password]
-		db.exec("INSERT INTO personalinfo(first, last, street, city, state, zip, phonenumber, contactemail, password) VALUES('#{session[:first]}', '#{session[:last]}', '#{session[:street]}', '#{session[:city]}', '#{session[:state]}', '#{session[:zip]}', '#{session[:phonenumber]}', '#{session[:contactemail]}', '#{session[:password]}')");
+		session[:email] = params[:email]
+		db.exec("INSERT INTO personalinfo(first, last, street, city, state, zip, phonenumber, email) VALUES('#{session[:first]}', '#{session[:last]}', '#{session[:street]}', '#{session[:city]}', '#{session[:state]}', '#{session[:zip]}', '#{session[:phonenumber]}', '#{session[:email]}')");
 		redirect '/questionpg1'
 	end
 
