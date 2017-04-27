@@ -114,10 +114,7 @@ db = PG::Connection.new(db_params)
 
 
 
-
-
-
-
+	
 
 
 	post '/delete_table' do
