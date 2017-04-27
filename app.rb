@@ -115,24 +115,11 @@ db = PG::Connection.new(db_params)
 
 
 
-
-<<<<<<< HEAD
 	# get '/accountinfo' do
 	# 	accountinfo = db.exec("SELECT first, last, street, state, city, zip, phonenumber, email FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
 	# 	erb :index, locals: {accountinfo: accountinfo}
 	# 	redirect '/page1'
 	# end
-
-
-
-
-=======
-
-
-
-	
->>>>>>> a47824f7f087f7422715ea9fc4e7a7446c363d5c
-
 
 	post '/delete_table' do
 		db.exec("DELETE FROM login AND personalinfo AND questions");
