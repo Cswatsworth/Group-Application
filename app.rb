@@ -16,12 +16,6 @@ db = PG::Connection.new(db_params)
 
 	enable :sessions
 
-	get '/accountinfo' do
-		accountinfo = db.exec("SELECT first, last, street, state, city, zip, phonenumber, contactemail, password FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
-		erb :index, locals: {accountinfo: accountinfo}
-		redirect '/page1'
-	end
-
 
 	get '/' do
 		login = db.exec("SELECT email, password FROM login");
@@ -33,6 +27,12 @@ db = PG::Connection.new(db_params)
 		session[:email] = params[:email]
 		session[:password] = params[:password]
 		db.exec("INSERT INTO login(email, password) VALUES('#{session[:email]}', '#{session[:password]}')");
+		redirect '/page1'
+	end
+
+	get '/accountinfo' do
+		accountinfo = db.exec("SELECT first, last, street, state, city, zip, phonenumber, contactemail, password FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
+		erb :index, locals: {accountinfo: accountinfo}
 		redirect '/page1'
 	end
 
