@@ -27,7 +27,14 @@ db = PG::Connection.new(db_params)
 		session[:email] = params[:email]
 		session[:password] = params[:password]
 		db.exec("INSERT INTO login(email, password) VALUES('#{session[:email]}', '#{session[:password]}')");
-		db.exec("INSERT INTO personalinfo(email, password) VALUES('#{session[:email]}', '#{session[:password]}')");
+		first = ""
+		last = ""
+		street = ""
+		city = ""
+		state = ""
+		zip = ""
+		phonenumber = ""
+		db.exec("INSERT INTO personalinfo(email, password, first, last, street, city, state, zip, phonenumber) VALUES('#{session[:email]}', '#{session[:password]}', '#{first}', '#{last}', '#{street}', '#{city}', '#{state}', '#{zip}', '#{phonenumber}')");
 		redirect '/page1'
 	end
 
@@ -44,9 +51,8 @@ db = PG::Connection.new(db_params)
 		session[:state] = params[:state]
 		session[:zip] = params[:zip]
 		session[:phonenumber] = params[:phonenumber]
-		session[:email] = params[:email]
-		db.exec("INSERT INTO personalinfo(first, last, street, city, state, zip, phonenumber, email) VALUES('#{session[:first]}', '#{session[:last]}', '#{session[:street]}', '#{session[:city]}', '#{session[:state]}', '#{session[:zip]}', '#{session[:phonenumber]}', '#{session[:email]}')");
-		# db.exec("INSERT INTO questions(email) VALUES('#{session[:email]}')");
+		
+		db.exec("UPDATE personalinfo SET first='#{session[:first]}', last='#{session[:last]}', street='#{session[:street]}', city='#{session[:city]}', state='#{session[:state]}', zip='#{session[:zip]}', phonenumber='#{[:phonenumber]}' WHERE email='#{session[:email]}'");
 		redirect '/questionpg1'
 	end
 
@@ -61,9 +67,23 @@ db = PG::Connection.new(db_params)
 		session[:question3] = params[:question3]
 		session[:question4] = params[:question4]
 		session[:question5] = params[:question5]
-		session[:email] = params[:email]
-		db.exec("INSERT INTO questions(question1, question2, question3, question4, question5, email) VALUES('#{session[:question1]}', '#{session[:question2]}', '#{session[:question3]}', '#{session[:question4]}', '#{session[:question5]}', '#{session[:email]}')");
-		# db.exec("INSERT INTO questions(email) VALUES('#{session[:email]}')");
+		question6 = ""
+		question7 = ""
+		question8 = ""
+		question9 = ""
+		question10 = ""
+		question11 = ""
+		question12 = ""
+		question13 = ""
+		question14 = ""
+		question15 = ""
+		question16 = ""
+		question17 = ""
+		question18 = ""
+		question19 = ""
+		question20 = ""
+		db.exec("INSERT INTO questions(question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, email) VALUES('#{session[:question1]}', '#{session[:question2]}', '#{session[:question3]}', '#{session[:question4]}', '#{session[:question5]}', '#{question6}', '#{question7}', '#{question8}', '#{question9}', '#{question10}', '#{question11}', '#{question12}', '#{question13}', '#{question14}', '#{question15}', '#{question16}', '#{question17}', '#{question18}', '#{question19}', '#{question20}', '#{session[:email]}')");
+
 		redirect '/questionpg2'
 	end
 
@@ -72,14 +92,14 @@ db = PG::Connection.new(db_params)
 		erb :questionpg2, locals: {questions: questions}
 	end
 
-	post '/questions' do
+	post '/questions1' do
 		session[:question6] = params[:question6]
 		session[:question7] = params[:question7]
 		session[:question8] = params[:question8]
 		session[:question9] = params[:question9]
 		session[:question10] = params[:questio10]
-		session[:email] = params[:email]
-		db.exec("INSERT INTO questions(question6, question7, question8, question9, question10, email) VALUES('#{session[:question6]}', '#{session[:question7]}', '#{session[:question8]}', '#{session[:question9]}', '#{session[:question10]}', '#{session[:email]}')");
+		
+		db.exec("UPDATE questions SET question6='#{session[:question6]}', question7='#{session[:question7]}', question8='#{session[:question8]}', question9='#{session[:question9]}', question10='#{session[:question10]}' WHERE email='#{session[:email]}'");
 		redirect '/questionpg3'
 	
 	end
@@ -89,30 +109,30 @@ db = PG::Connection.new(db_params)
 		erb :questionpg3, locals: {questions: questions}
 	end
 
-	post '/questions' do
+	post '/questions2' do
 		session[:question11] = params[:question11]
 		session[:question12] = params[:question12]
 		session[:question13] = params[:question13]
 		session[:question14] = params[:question14]
 		session[:question15] = params[:question15]
-		session[:email] = params[:email]
-		db.exec("INSERT INTO questions(question11, question12, question13, question14, question15, email) VALUES('#{session[:question11]}', '#{session[:question12]}', '#{session[:question13]}', '#{session[:question14]}', '#{session[:question15]}', '#{session[:email]}')");
+		
+		db.exec("UPDATE questions SET question11='#{session[:question11]}', question12='#{session[:question12]}', question13='#{session[:question13]}', question14='#{session[:question14]}', question15='#{session[:question15]}' WHERE email='#{session[:email]}'");
 		redirect '/questionpg4'
 	end
 
 	get '/questionpg4' do
 		questions = db.exec("SELECT question16, question17, question18, question18, question20, email FROM questions");
-		erb :questionpg3, locals: {questions: questions}
+		erb :questionpg4, locals: {questions: questions}
 	end
 
-	post '/questions' do
+	post '/questions3' do
 		session[:question16] = params[:question16]
 		session[:question17] = params[:question17]
 		session[:question18] = params[:question18]
 		session[:question19] = params[:question19]
 		session[:question20] = params[:question20]
-		session[:email] = params[:email]
-		db.exec("INSERT INTO questions(question16, question17, question18, question19, question20, email) VALUES('#{session[:question16]}', '#{session[:question17]}', '#{session[:question18]}', '#{session[:question19]}', '#{session[:question20]}', '#{session[:email]}')");
+		
+		db.exec("UPDATE questions SET question16='#{session[:question16]}', question17='#{session[:question17]}', question18='#{session[:question18]}', question19='#{session[:question19]}', question20='#{session[:question20]}' WHERE email='#{session[:email]}'");
 		redirect '/complete'
 	end
 
