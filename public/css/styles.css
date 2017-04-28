@@ -77,7 +77,11 @@ h3 {
   border-width: 9px;
   border-color: #1D297B;
   }
-
+h4 {
+  color: white;
+  font-size: 20px;
+  font-family: Helvetica;
+}
 .logo {
   position: relative;
   width: 10px;
