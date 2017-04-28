@@ -22,6 +22,12 @@ db = PG::Connection.new(db_params)
 		erb :index, locals: {login: login}
 	end
 
+	get '/signin' do
+		signin = db.exec("SELECT first, last, street, state, city, zip, phonenumber, email FROM public.personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
+		erb :index, locals: {personalinfo: personalinfo}
+		redirect '/page1'
+	end
+
 
 	post'/login' do
 		session[:email] = params[:email]
@@ -139,14 +145,6 @@ db = PG::Connection.new(db_params)
 	get '/complete' do
 		erb :complete
 	end
-
-
-
-	# get '/accountinfo' do
-	# 	accountinfo = db.exec("SELECT first, last, street, state, city, zip, phonenumber, email FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
-	# 	erb :index, locals: {accountinfo: accountinfo}
-	# 	redirect '/page1'
-	# end
 
 	# post '/delete_table' do
 	# 	db.exec("DELETE FROM login");
