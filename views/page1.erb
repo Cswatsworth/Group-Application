@@ -81,7 +81,7 @@
 		<label for="phonenumber">Phonenumber</label><input type="text" name="phonenumber" placeholder="+ (XXX) XXX-XXXX" required>
 		</p>
 		<p>
-		<label for="email">Email Address</label><input type="text" name="email" placeholder="YOUR@EMAILADDRESS.COM" required>
+		<label for="email">Email Address:</label> <%=session[:email]%>
 		</p>
 		<p>
 		<button type="submit" class="button">Submit</button>
@@ -92,7 +92,7 @@
 		<button type="submit" class="button">Back</button>
 		</p>
 	</form>
-	 <form action='/delete_table1' method='post'>
+	<!--  <form action='/delete_table1' method='post'>
     	<input type = "submit" value = "Delete Data">
     </form>
-</div>
+</div> -->
