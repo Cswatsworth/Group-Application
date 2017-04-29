@@ -16,6 +16,19 @@ db = PG::Connection.new(db_params)
 
 	enable :sessions
 
+get '/' do
+		session_email = session[:email]
+        session_password = session[:password]
+        if (session_email == nil || session_password == nil)
+	        login = db.exec("SELECT email, password FROM login");
+			erb :index, locals: {login: login}   
+        else
+            redirect '/page1'
+        end
+	end
+
+
+
 
 	get '/' do
 		login = db.exec("SELECT email, password FROM login");
@@ -161,3 +174,64 @@ db = PG::Connection.new(db_params)
 	# 	db.exec("DELETE FROM questions");
 	# 	redirect '/'
 	# end
+
+=begin
+	post '/account' do				
+	 	accountinfo = db.exec("SELECT p.first, p.last, p.street, p.state, p.city, p.zip, p.phonenumber, p.email 
+	 							FROM login l
+	 							INNER JOIN personalinfo p ON p.email = l.email
+	 							WHERE l.email='#{params[:email]}' AND l.password='#{params[:password]}'")
+
+	 	erb :index, locals: {accountinfo: accountinfo}		 	
+	 	redirect '/page1'	 	
+	end
+=end
+
+
+    post '/account' do
+        session_email = session[:email]
+        session_password = session[:password]
+        if (session_email == nil || session_password == nil)
+            email = params[:email]
+            password = params[:password]
+            sql = "SELECT email FROM login WHERE email = '#{email}' AND password = '#{password}'"
+            puts "Email: #{email}"
+            puts "Password: #{password}"
+            puts sql
+            account = db.exec(sql)
+            if account.num_tuples == 0
+                puts "get out of here"
+                redirect '/'
+            else
+                puts "Sweet baby jesus"
+                session[:email] = params[:email]
+                session[:password] = params[:password]
+                sql = "SELECT * FROM personalinfo WHERE email = '#{email}'"
+                accountinfo = db.exec(sql)
+                #erb :account, locals: {accountinfo: accountinfo}
+                redirect '/page1'
+            end
+        else
+            puts "Session data exists"
+            puts "Session Email: #{session_email}"
+            puts "Session Password: #{session_password}"
+            sql = "SELECT * FROM personalinfo WHERE email = '#{session_email}'"
+            accountinfo = db.exec(sql)
+            erb :account, locals: {accountinfo: accountinfo}
+        end
+    end
+
+
+	#get '/accountinfo' do
+	# 	accountinfo = db.exec("SELECT first, last, street, state, city, zip, phonenumber, email FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
+	# 	erb :index, :locals => {accountinfo: accountinfo}
+	# 	redirect '/page1'
+	#end
+
+	post '/delete_table' do
+		db.exec("DELETE FROM login WHERE email = '#{session[:email]}'");
+		db.exec("DELETE FROM personalinfo WHERE email ='#{session[:email]}'");		
+		#***Must add an email field to the questions table for the below query to work***
+		db.exec("DELETE FROM questions WHERE email = '#{session[:email]}'");
+		redirect '/'
+	end
