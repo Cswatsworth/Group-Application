@@ -18,18 +18,16 @@ db = PG::Connection.new(db_params)
 
 	enable :sessions
 
-	get '/' do
-		session_email = session[:email]
-        session_password = session[:password]
-        if (session_email == nil || session_password == nil)
-	        login = db.exec("SELECT email, password FROM login");
-			erb :index, locals: {login: login}   
-        else
-            redirect '/page1'
-        end
-	end
-
-
+	# get '/' do
+	# 	session_email = session[:email]
+ #        session_password = session[:password]
+ #        if (session_email == nil || session_password == nil)
+	#         login = db.exec("SELECT email, password FROM login");
+	# 		erb :index, locals: {login: login}   
+ #        else
+ #            redirect '/page1'
+ #        end
+	# end
 
 
 	get '/' do
@@ -107,7 +105,7 @@ db = PG::Connection.new(db_params)
 		erb :questionpg2, locals: {questions: questions}
 	end
 
-	post '/questions1' do
+	post '/questions2' do
 		session[:question6] = params[:question6]
 		session[:question7] = params[:question7]
 		session[:question8] = params[:question8]
@@ -124,7 +122,7 @@ db = PG::Connection.new(db_params)
 		erb :questionpg3, locals: {questions: questions}
 	end
 
-	post '/questions2' do
+	post '/questions3' do
 		session[:question11] = params[:question11]
 		session[:question12] = params[:question12]
 		session[:question13] = params[:question13]
@@ -140,7 +138,7 @@ db = PG::Connection.new(db_params)
 		erb :questionpg4, locals: {questions: questions}
 	end
 
-	post '/questions3' do
+	post '/questions4' do
 		session[:question16] = params[:question16]
 		session[:question17] = params[:question17]
 		session[:question18] = params[:question18]
@@ -155,11 +153,24 @@ db = PG::Connection.new(db_params)
 		erb :edit
 	end
 
-	get '/signin' do
-		signin = db.exec("SELECT first, last, street, state, city, zip, phonenumber, email FROM public.personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'");
-		erb :index, locals: {personalinfo: personalinfo}
-		redirect '/page1'
+
+	post '/send_email' do
+
+		send_email		
+		#Might need to tweak this to redirect to desired page or create an email successfully sent page
+		redirect '/complete'
 	end
+
+	get '/complete' do
+		erb :complete
+
+	end
+
+	# get '/signin' do
+	# 	signin = db.exec("SELECT first, last, street, state, city, zip, phonenumber, email FROM public.personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'");
+	# 	erb :index, locals: {personalinfo: personalinfo}
+	# 	redirect '/page1'
+	# end
 
 
 =begin
@@ -174,8 +185,13 @@ db = PG::Connection.new(db_params)
 	end
 =end
 
+	get '/account' do
+		erb :account
+	end
 
-    post '/account' do
+
+
+   	post '/account' do
         session_email = session[:email]
         session_password = session[:password]
         if (session_email == nil || session_password == nil)
@@ -188,15 +204,15 @@ db = PG::Connection.new(db_params)
             account = db.exec(sql)
             if account.num_tuples == 0
                 puts "get out of here"
-                redirect '/'
+                redirect '/account'
             else
                 puts "Sweet baby jesus"
                 session[:email] = params[:email]
                 session[:password] = params[:password]
                 sql = "SELECT * FROM personalinfo WHERE email = '#{email}'"
                 accountinfo = db.exec(sql)
-                #erb :account, locals: {accountinfo: accountinfo}
-                redirect '/page1'
+                erb :account, locals: {personalinfo: personalinfo}
+                redirect '/account'
             end
         else
             puts "Session data exists"
@@ -204,16 +220,16 @@ db = PG::Connection.new(db_params)
             puts "Session Password: #{session_password}"
             sql = "SELECT * FROM personalinfo WHERE email = '#{session_email}'"
             accountinfo = db.exec(sql)
-            erb :account, locals: {accountinfo: accountinfo}
+            erb :account, locals: {personalinfo: personalinfo}
         end
     end
 
 
-	#get '/accountinfo' do
+	# get '/accountinfo' do
 	# 	accountinfo = db.exec("SELECT first, last, street, state, city, zip, phonenumber, email FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
 	# 	erb :index, :locals => {accountinfo: accountinfo}
 	# 	redirect '/page1'
-	#end
+	# end
 
 	post '/delete_table' do
 		db.exec("DELETE FROM login WHERE email = '#{session[:email]}'");
@@ -222,19 +238,20 @@ db = PG::Connection.new(db_params)
 		db.exec("DELETE FROM questions WHERE email = '#{session[:email]}'");
 		redirect '/'
 	end
-######## added stuff below ###########
-	post '/send_email' do
-
-		send_email		
-		#Might need to tweak this to redirect to desired page or create an email successfully sent page
-		redirect '/complete'
-	end
 
 
-	get '/complete' do
-		erb :complete
 
-	end
+
+
+
+
+
+
+
+
+
+
+
 
 
 
