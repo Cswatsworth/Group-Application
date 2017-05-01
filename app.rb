@@ -235,3 +235,26 @@ get '/' do
 		db.exec("DELETE FROM questions WHERE email = '#{session[:email]}'");
 		redirect '/'
 	end
+######## added stuff below ###########
+		post '/send_email' do
+
+		send_email		
+		#Might need to tweak this to redirect to desired page or create an email successfully sent page
+		redirect '#'
+	end
+
+def send_email()
+	domain = 'yahoo.com' #leave alone
+	from = 'kglass128@yahoo.com'	
+	to = [session[:email], from]
+	username = from
+	password = 'your_email_password'
+
+ 	msg = "Subject: Account Confirmation\n\n Account '#{session[:email]}' has been succesfully created!"
+    smtp = Net::SMTP.new 'smtp.mail.yahoo.com', 587
+    smtp.enable_starttls    
+    smtp.start(domain, username, password, :login) do
+      smtp.send_message(msg, from, to)
+    end
+
+end
