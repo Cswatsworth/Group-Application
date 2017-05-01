@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'pg'
 require_relative 'functions.rb'
+require 'net/smtp'
+
 
 load './local_env.rb' if File.exists?('./local_env.rb')
 
@@ -146,11 +148,11 @@ get '/' do
 		session[:question20] = params[:question20]
 		
 		db.exec("UPDATE questions SET question16='#{session[:question16]}', question17='#{session[:question17]}', question18='#{session[:question18]}', question19='#{session[:question19]}', question20='#{session[:question20]}' WHERE email='#{session[:email]}'");
-		redirect '/complete'
+		redirect '/edit'
 	end
 
-	get '/complete' do
-		erb :complete
+	get '/edit' do
+		erb :edit
 	end
 
 	get '/signin' do
@@ -240,18 +242,26 @@ get '/' do
 
 		send_email		
 		#Might need to tweak this to redirect to desired page or create an email successfully sent page
-		redirect '#'
+		redirect '/complete'
 	end
 
+
+	get '/complete' do
+		erb :complete
+
+	end
+
+
+
 def send_email()
-	domain = 'yahoo.com' #leave alone
-	from = 'kglass128@yahoo.com'	
+	domain = 'gmail.com' #leave alone
+	from = 'mmapplicationgroup@gmail.com'	
 	to = [session[:email], from]
 	username = from
-	password = 'your_email_password'
+	password = 'mmapplication2017'
 
  	msg = "Subject: Account Confirmation\n\n Account '#{session[:email]}' has been succesfully created!"
-    smtp = Net::SMTP.new 'smtp.mail.yahoo.com', 587
+    smtp = Net::SMTP.new 'smtp.gmail.com', 587
     smtp.enable_starttls    
     smtp.start(domain, username, password, :login) do
       smtp.send_message(msg, from, to)
