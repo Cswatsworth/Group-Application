@@ -1,21 +1,25 @@
   
-<center><div class="container rounded-green" >
-    <form action="/login" method="post">
-      <b><p>Email: </b><input type="text" placeholder="Enter Email" name="email" required></p>
+<center><div class="container rounded-green">
 
-      <b><p>Password: </b><input type="password" placeholder="Enter Password" name="password" required></p>
+  <form action="/login" method="post">
+      
+      <b><p>Email: </b><input type="text" placeholder="Enter Email" name="email" required></p></b>
+      <b><p>Password: </b><input type="password" placeholder="Enter Password" name="password" required></p></b>
 
       <p><button type="submit" class="button">Sign-up</button></p>
+      <p>Already Have An Account?</p>
+
+  </form>
       
-        <form action="/signin" method="post">
+  <form action="/account" method="post">
       <p><button type="submit" class="button">Sign-in</button></p>
-        </form>
+  </form>
 
     <p>OR</p>
 
   <p>
     <form method='post' action='message'>
-      Continue with Facebook<p>
+     <p>
       <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];

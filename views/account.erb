@@ -1,5 +1,42 @@
 <div class="container">
-	<form action="" method="post"> //need to put action
+	<form action="personalinfo" method="post"> //need to put action
+
+
+<p><table></p>
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Street</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Zip</th>
+				<th>Phone Number</th>
+				<th>Email Address</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			<tr>
+				<td><%=info["first"] %></td>
+				<td><%=info["last"] %></td>
+				<td><%=info["street"] %></td>
+				<td><%=info["city"] %></td>
+				<td><%=info["state"] %></td>
+				<td><%=info["zip"] %></td>
+				<td><%=info["phonenumber"] %></td>
+				<td><%=info["email"] %></td>
+			</tr>
+			<%end%>
+		</tbody>
+	</table>
+
+
+
+
+
+
+
 
 	<p>
 		<button type="submit" class="button">Continue Application</button>
