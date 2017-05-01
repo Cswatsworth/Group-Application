@@ -1,5 +1,5 @@
 <div class="container">
-	<form action="personalinfo" method="post"> //need to put action
+	<form action="account" method="post"> //need to put action
 
 
 <p><table></p>
@@ -18,21 +18,21 @@
 		<tbody>
 			
 			<tr>
-				<td><%=info["first"] %></td>
-				<td><%=info["last"] %></td>
-				<td><%=info["street"] %></td>
-				<td><%=info["city"] %></td>
-				<td><%=info["state"] %></td>
-				<td><%=info["zip"] %></td>
-				<td><%=info["phonenumber"] %></td>
-				<td><%=info["email"] %></td>
+				<td><%=session[:email]%></td>email?
+				<td><%=session["last"] %></td>
+				<td><%=session["street"] %></td>
+				<td><%=session["city"] %></td>
+				<td><%=session["state"] %></td>
+				<td><%=session["zip"] %></td>
+				<td><%=session["phonenumber"] %></td>
+				<td><%=session["email"] %></td>
 			</tr>
-			<%end%>
+			
 		</tbody>
 	</table>
 
 
-
+<%=session["email"]%>
 
 
 
@@ -40,7 +40,7 @@
 
 	<p>
 		<button type="submit" class="button">Continue Application</button>
-		<button type="submit" class="button">Last Page</button>
+		<button type="submit" class="button">Logout</button>
 	</p>
 </div>
 
