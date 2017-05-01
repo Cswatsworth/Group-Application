@@ -18,7 +18,7 @@ db = PG::Connection.new(db_params)
 
 	enable :sessions
 
-get '/' do
+	get '/' do
 		session_email = session[:email]
         session_password = session[:password]
         if (session_email == nil || session_password == nil)
@@ -162,21 +162,6 @@ get '/' do
 	end
 
 
-	# post '/delete_table' do
-	# 	db.exec("DELETE FROM login");
-	# 	redirect '/'
-	# end
-
-	# post '/delete_table1' do
-	# 	db.exec("DELETE FROM personalinfo ");
-	# 	redirect '/'
-	# end
-
-	# post '/delete_table2' do
-	# 	db.exec("DELETE FROM questions");
-	# 	redirect '/'
-	# end
-
 =begin
 	post '/account' do				
 	 	accountinfo = db.exec("SELECT p.first, p.last, p.street, p.state, p.city, p.zip, p.phonenumber, p.email 
@@ -238,7 +223,7 @@ get '/' do
 		redirect '/'
 	end
 ######## added stuff below ###########
-		post '/send_email' do
+	post '/send_email' do
 
 		send_email		
 		#Might need to tweak this to redirect to desired page or create an email successfully sent page
@@ -253,18 +238,18 @@ get '/' do
 
 
 
-def send_email()
-	domain = 'gmail.com' #leave alone
-	from = 'mmapplicationgroup@gmail.com'	
-	to = [session[:email], from]
-	username = from
-	password = 'mmapplication2017'
+	def send_email()
+		domain = 'gmail.com' #leave alone
+		from = 'mmapplicationgroup@gmail.com'	
+		to = [session[:email], from]
+		username = from
+		password = 'mmapplication2017'
 
- 	msg = "Subject: Account Confirmation\n\n Account '#{session[:email]}' has been succesfully created!"
-    smtp = Net::SMTP.new 'smtp.gmail.com', 587
-    smtp.enable_starttls    
-    smtp.start(domain, username, password, :login) do
-      smtp.send_message(msg, from, to)
-    end
+	 	msg = "Subject: Account Confirmation\n\n Account '#{session[:email]}' has been succesfully created!"
+	    smtp = Net::SMTP.new 'smtp.gmail.com', 587
+	    smtp.enable_starttls    
+	    smtp.start(domain, username, password, :login) do
+	      smtp.send_message(msg, from, to)
+	    end
 
-end
+	end
