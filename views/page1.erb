@@ -1,99 +1,139 @@
-<div class="container rounded-green">
-	<form action="/personalinfo" method="post">
-		<p>PLEASE ENTER CONTACT INFORMATION</p>
 
-		<p>
-		<label for="first">First Name</label><input type="text" name="first" placeholder="YOUR FIRST NAME" required>
-		</p>
-		<p>
-		<label for="last">Last Name</label><input type="text" name="last" placeholder="YOUR LAST NAME" required>
-		</p>
-		<p>
-		<label for="street">Street</label><input type="text" name="street" placeholder="STREET" required>
-		</p>
-		<p>
-		<label for="city">City</label><input type="text" name="city" placeholder="YOUR CITY" required>
-		</p>
-		<p>
-		<div class="form-group">
-	<label for="state" class="col-sm-2 control-label">Choose state:</label>
-	<div class="col-sm-10">
-		<select class="form-control" id="state" name="state" required>
-			<option value="">N/A</option>
-			<option value="AK">Alaska</option>
-			<option value="AL">Alabama</option>
-			<option value="AR">Arkansas</option>
-			<option value="AZ">Arizona</option>
-			<option value="CA">California</option>
-			<option value="CO">Colorado</option>
-			<option value="CT">Connecticut</option>
-			<option value="DC">District of Columbia</option>
-			<option value="DE">Delaware</option>
-			<option value="FL">Florida</option>
-			<option value="GA">Georgia</option>
-			<option value="HI">Hawaii</option>
-			<option value="IA">Iowa</option>
-			<option value="ID">Idaho</option>
-			<option value="IL">Illinois</option>
-			<option value="IN">Indiana</option>
-			<option value="KS">Kansas</option>
-			<option value="KY">Kentucky</option>
-			<option value="LA">Louisiana</option>
-			<option value="MA">Massachusetts</option>
-			<option value="MD">Maryland</option>
-			<option value="ME">Maine</option>
-			<option value="MI">Michigan</option>
-			<option value="MN">Minnesota</option>
-			<option value="MO">Missouri</option>
-			<option value="MS">Mississippi</option>
-			<option value="MT">Montana</option>
-			<option value="NC">North Carolina</option>
-			<option value="ND">North Dakota</option>
-			<option value="NE">Nebraska</option>
-			<option value="NH">New Hampshire</option>
-			<option value="NJ">New Jersey</option>
-			<option value="NM">New Mexico</option>
-			<option value="NV">Nevada</option>
-			<option value="NY">New York</option>
-			<option value="OH">Ohio</option>
-			<option value="OK">Oklahoma</option>
-			<option value="OR">Oregon</option>
-			<option value="PA">Pennsylvania</option>
-			<option value="PR">Puerto Rico</option>
-			<option value="RI">Rhode Island</option>
-			<option value="SC">South Carolina</option>
-			<option value="SD">South Dakota</option>
-			<option value="TN">Tennessee</option>
-			<option value="TX">Texas</option>
-			<option value="UT">Utah</option>
-			<option value="VA">Virginia</option>
-			<option value="VT">Vermont</option>
-			<option value="WA">Washington</option>
-			<option value="WI">Wisconsin</option>
-			<option value="WV">West Virginia</option>
-			<option value="WY">Wyoming</option>
-		</select>
-	</div>
+<!-- <section>
+	<center>
+	<div class="col-sm-4 rounded-green inner-wrapper">
+		
+		<form action="/personalinfo" method="post">
+		<fieldset class="field_set">
+			<legend>
+			PLEASE ENTER CONTACT INFORMATION:</legend><br>
+			First Name:<br><input type="text" name="first" placeholder="YOUR FIRST NAME" required><br>
+			Last Name:<br><input type="text" name="last" placeholder="YOUR LAST NAME" required><br>
+			Address:<br><input type="text" name="street" placeholder="STREET" required><br>
+			City / Town:<br><input type="text" name="city" placeholder="CITY" required><br>
+			State / Province / Region:<br><input type="text" name="state" placeholder="STATE" required><br>
+			Zip / Postal Code:<br><input type="text" name="zip" placeholder="5 DIGIT ZIP" required><br>
+			Phonenumber:<br><input type="text" name="phonenumber" placeholder="+ (XXX) XXX-XXXX" required><br>
+			Email Address:<br><input type="text" name="email" value=<%=session[:email]%>><br>
+			<button type="submit" class="button">Submit</button>
+		</form>
+		</fieldset>
+		<button onclick="goBack()">Go Back</button>
+		<!-  <form action='/delete_table1' method='post'>
+	    	<input type = "submit" value = "Delete Data">
+	    </form>
+	</div> -->
+	<!-- </center>
+</section> -->
+<!-- Start Pure Form HTML -->
+<center>
+<div class="container rounded-green">
+<h3><strong>PLEASE ENTER CONTACT INFORMATION:</h3></strong>
+<!-- <form class="pure-form pure-form-aligned"> -->
+<form action="/personalinfo" method="post" class="pure-form pure-form-aligned">
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="first">First Name:</label>
+            <input id="first" type="text" placeholder="Your First Name" required>
+           <!--  <span class="pure-form-message-inline">required</span> -->
+        </div>
+
+        <div class="pure-control-group">
+            <label for="last">Password</label>
+            <input id="last" type="text" placeholder="Your Last Name" required>
+            <!-- <span class="pure-form-message-inline">required</span> -->
+        </div>
+
+        
+
+        <div class="pure-control-group">
+            <label for="street">Address</label>
+            <input id="street" type="text" placeholder="Street" required>
+            <!-- <span class="pure-form-message-inline">required</span> -->
+        </div>
+
+        <div class="pure-control-group" >
+            <label for="state">State</label>
+            <select id="state" required
+            	<option>N/A</option>
+				<option>Alaska</option>
+				<option>Alabama</option>
+				<option>Arkansas</option>
+				<option>Arizona</option>
+				<option>California</option>
+				<option>Colorado</option>
+				<option>Connecticut</option>
+				<option>District of Columbia</option>
+				<option>Delaware</option>
+				<option>Florida</option>
+				<option>Georgia</option>
+				<option>Hawaii</option>
+				<option>Iowa</option>
+				<option>Idaho</option>
+				<option>Illinois</option>
+				<option>Indiana</option>
+				<option>Kansas</option>
+				<option>Kentucky</option>
+				<option>Louisiana</option>
+				<option>Massachusetts</option>
+				<option>Maryland</option>
+				<option>Maine</option>
+				<option>Michigan</option>
+				<option>Minnesota</option>
+				<option>Missouri</option>
+				<option>Mississippi</option>
+				<option>Montana</option>
+				<option>North Carolina</option>
+				<option>North Dakota</option>
+				<option>Nebraska</option>
+				<option>New Hampshire</option>
+				<option>New Jersey</option>
+				<option>New Mexico</option>
+				<option>Nevada</option>
+				<option>New York</option>
+				<option>Ohio</option>
+				<option>Oklahoma</option>
+				<option>Oregon</option>
+				<option>Pennsylvania</option>
+				<option>Puerto Rico</option>
+				<option>Rhode Island</option>
+				<option>South Carolina</option>
+				<option>South Dakota</option>
+				<option>Tennessee</option>
+				<option>Texas</option>
+				<option>Utah</option>
+				<option>Virginia</option>
+				<option>Vermont</option>
+				<option>Washington</option>
+				<option>Wisconsin</option>
+				<option>West Virginia</option>
+				<option>Wyoming</option> 
+			</select>
+        </div>
+
+        <div class="pure-control-group">
+            <label for="zip">Zip / Postal Code</label>
+            <input id="zip" type="text" placeholder="5 Digit Zip" required>
+            <!-- <span class="pure-form-message-inline">required</span> -->
+        </div>
+
+        <div class="pure-control-group">
+            <label for="phonenumber">Phonenumber</label>
+            <input id="phonenumber" type="text" placeholder="+ (XXX-XXXX)" required>
+            <!-- <span class="pure-form-message-inline">required</span> -->
+        </div>
+
+        <div class="pure-control-group">
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="Email Address" value=<%=session[:email]%> required>
+            <!-- <span class="pure-form-message-inline">required</span> -->
+        </div>
+
+        <div class="pure-controls">
+ 	       <button type="submit" class="pure-button pure-button-primary">Submit</button>
+ 	       <button onclick="goBack()" class="pure-button pure-button-primary">Go Back</button>
+        </div>       
+    </fieldset>
+</form>
+</center>
 </div>
-		<label for="zip">Zip</label><input type="text" name="zip" placeholder="5 DIGIT ZIP" required>
-		</p>
-		<p>
-		<label for="phonenumber">Phonenumber</label><input type="text" name="phonenumber" placeholder="+ (XXX) XXX-XXXX" required>
-		</p>
-		<p>
-		<label for="email">Email Address:</label><input type="text" name="email" value=<%=session[:email]%>>
-		</p>
-		<p>
-		<button type="submit" class="button">Submit</button>
-		</p>
-	</form>
-		<p>
-	<!-- <form action="../" method="post">
-		<button type="submit" class="button">Back</button>
-		</p>
-	</form> -->
-	<button onclick="goBack()">Go Back</button>
-	<!--  <form action='/delete_table1' method='post'>
-    	<input type = "submit" value = "Delete Data">
-    </form>
-</div> -->
