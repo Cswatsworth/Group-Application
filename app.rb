@@ -105,7 +105,7 @@ db = PG::Connection.new(db_params)
 		erb :questionpg2, locals: {questions: questions}
 	end
 
-	post '/questions2' do
+	post '/questions1' do
 		session[:question6] = params[:question6]
 		session[:question7] = params[:question7]
 		session[:question8] = params[:question8]
@@ -122,7 +122,7 @@ db = PG::Connection.new(db_params)
 		erb :questionpg3, locals: {questions: questions}
 	end
 
-	post '/questions3' do
+	post '/questions2' do
 		session[:question11] = params[:question11]
 		session[:question12] = params[:question12]
 		session[:question13] = params[:question13]
@@ -138,7 +138,7 @@ db = PG::Connection.new(db_params)
 		erb :questionpg4, locals: {questions: questions}
 	end
 
-	post '/questions4' do
+	post '/questions3' do
 		session[:question16] = params[:question16]
 		session[:question17] = params[:question17]
 		session[:question18] = params[:question18]
