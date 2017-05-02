@@ -39,11 +39,11 @@ db = PG::Connection.new(db_params)
 	post'/login' do
 		session[:email] = params[:email]
 		session[:password] = params[:password]
-		session[:psw_req] = PasswordReqClass.new(params[:password])
+						# session[:psw_req] = PasswordReqClass.new(params[:password])
 
-			if session[:psw_req].password_requirements == false
-				 "Password"
-			else
+						# 	if session[:psw_req].password_requirements == false
+						# 		 "Password"
+						# 	else
 
 		db.exec("INSERT INTO login(email, password) VALUES('#{session[:email]}', '#{session[:password]}')");
 		first = ""
@@ -55,7 +55,7 @@ db = PG::Connection.new(db_params)
 		phonenumber = ""
 		db.exec("INSERT INTO personalinfo(email, password, first, last, street, city, state, zip, phonenumber) VALUES('#{session[:email]}', '#{session[:password]}', '#{first}', '#{last}', '#{street}', '#{city}', '#{state}', '#{zip}', '#{phonenumber}')");
 		redirect '/p_info'
-		end
+		#end
 	end
 
 	get '/p_info' do
@@ -276,7 +276,7 @@ db = PG::Connection.new(db_params)
 
 
 
-
+##**FUNCTIONS**##
 
 
 
