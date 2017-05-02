@@ -98,6 +98,7 @@ h4 {
     }
 
 .rounded-green{
+  padding: 2px;
   border-color: white;
   border-width: 2px;
   background-color: #66C3AD;
@@ -109,6 +110,7 @@ h4 {
   }
 
 .rounded-purple{
+  padding: 2px;
   border-color: white;
   border-width: 2px;
   background-color: #68679F;
