@@ -23,16 +23,16 @@ db = PG::Connection.new(db_params)
  #        session_password = session[:password]
  #        if (session_email == nil || session_password == nil)
 	#         login = db.exec("SELECT email, password FROM login");
-	# 		erb :index, locals: {login: login}   
+	# 		erb :login_erb, locals: {login: login}   
  #        else
- #            redirect '/page1'
+ #            redirect '/p_info'
  #        end
 	# end
 
 
 	get '/' do
 		login = db.exec("SELECT email, password FROM login");
-		erb :index, locals: {login: login}
+		erb :login_erb, locals: {login: login}
 	end
 
 
@@ -55,13 +55,13 @@ db = PG::Connection.new(db_params)
 		zip = ""
 		phonenumber = ""
 		db.exec("INSERT INTO personalinfo(email, password, first, last, street, city, state, zip, phonenumber) VALUES('#{session[:email]}', '#{session[:password]}', '#{first}', '#{last}', '#{street}', '#{city}', '#{state}', '#{zip}', '#{phonenumber}')");
-		redirect '/page1'
+		redirect '/p_info'
 		end
 	end
 
-	get '/page1' do
+	get '/p_info' do
 		personalinfo = db.exec("SELECT first, last, street, city, state, zip, phonenumber, email FROM personalinfo");
-		erb :page1, locals: {personalinfo: personalinfo}
+		erb :p_info, locals: {personalinfo: personalinfo}
 	end
 
 	post '/personalinfo' do
@@ -161,11 +161,11 @@ db = PG::Connection.new(db_params)
 		session[:question20] = params[:question20]
 		
 		db.exec("UPDATE questions SET question16='#{session[:question16]}', question17='#{session[:question17]}', question18='#{session[:question18]}', question19='#{session[:question19]}', question20='#{session[:question20]}' WHERE email='#{session[:email]}'");
-		redirect '/edit'
+		redirect '/review'
 	end
 
-	get '/edit' do
-		erb :edit
+	get '/review' do
+		erb :review
 	end
 
 
@@ -200,8 +200,8 @@ db = PG::Connection.new(db_params)
 	 							INNER JOIN personalinfo p ON p.email = l.email
 	 							WHERE l.email='#{params[:email]}' AND l.password='#{params[:password]}'")
 
-	 	erb :index, locals: {accountinfo: accountinfo}		 	
-	 	redirect '/page1'	 	
+	 	erb :login_erb, locals: {accountinfo: accountinfo}		 	
+	 	redirect '/p_info'	 	
 	end
 =end
 
@@ -247,8 +247,8 @@ db = PG::Connection.new(db_params)
 #****DIFFERENT APPROACH. KIND OF THE SAME AS ABOVE****
 	# get '/accountinfo' do
 	# 	accountinfo = db.exec("SELECT first, last, street, state, city, zip, phonenumber, email FROM public.user WHERE email='#{session[:email]}' AND password='#{session[:password]}'")
-	# 	erb :index, :locals => {accountinfo: accountinfo}
-	# 	redirect '/page1'
+	# 	erb :login_erb, :locals => {accountinfo: accountinfo}
+	# 	redirect '/p_info'
 	# end
 
 
@@ -264,8 +264,12 @@ db = PG::Connection.new(db_params)
 
 
 
-
-
+			#**PASSWORD HTML**#
+			# <script>
+			# 	function badPass() { 
+			# 	alert("Password Does Not Meet Requirements");
+			# 	}
+			# <script>
 
 
 
