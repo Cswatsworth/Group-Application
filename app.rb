@@ -42,8 +42,7 @@ db = PG::Connection.new(db_params)
 		session[:psw_req] = PasswordReqClass.new(params[:password])
 
 			if session[:psw_req].password_requirements == false
-				print "Password"
-
+				 "Password"
 			else
 
 		db.exec("INSERT INTO login(email, password) VALUES('#{session[:email]}', '#{session[:password]}')");
@@ -254,13 +253,13 @@ db = PG::Connection.new(db_params)
 
 
 #***DELETE FUNCTION*****
-	# post '/delete_table' do
-	# 	db.exec("DELETE FROM login WHERE email = '#{session[:email]}'");
-	# 	db.exec("DELETE FROM personalinfo WHERE email ='#{session[:email]}'");		
-	# 	#***Must add an email field to the questions table for the below query to work***
-	# 	db.exec("DELETE FROM questions WHERE email = '#{session[:email]}'");
-	# 	redirect '/'
-	# end
+	post '/delete_table' do
+		db.exec("DELETE FROM login WHERE email = '#{session[:email]}'");
+		db.exec("DELETE FROM personalinfo WHERE email ='#{session[:email]}'");		
+		#***Must add an email field to the questions table for the below query to work***
+		db.exec("DELETE FROM questions WHERE email = '#{session[:email]}'");
+		redirect '/'
+	end
 
 
 
