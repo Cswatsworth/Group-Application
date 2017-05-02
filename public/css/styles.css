@@ -1,4 +1,4 @@
-button {
+/*button {
    border-top: 1px solid #96d1f8;
    background: #65a9d7;
    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
@@ -19,7 +19,7 @@ button {
    font-family: Georgia, Serif;
    text-decoration: none;
    vertical-align: middle;
-   }
+   }*/
 .button:hover {
    border-top-color: #28597a;
    background: #28597a;
@@ -73,11 +73,14 @@ h3 {
   font-family: Helvetica;
   color: #03255b;
 }
-
-.hr {
+#blue-spacer {
   border-width: 9px;
   border-color: #1D297B;
   }
+/*.spacer {
+  border-width: 9px;
+  border-color: white;
+  }*/
 h4 {
   font-size: 20px;
   font-family: Helvetica;
@@ -130,7 +133,17 @@ h4 {
 }
 body {
   color: #03255b;
+  font-size: 20px;
 }
 label {
   color: #03255b;
+}
+.answer-box {
+  border-color: #03255b; 
+
+  width: 1120px;
+  height: 100px;
+}
+.skinny-font {
+  font-weight: lighter;
 }
