@@ -34,3 +34,4 @@ $("#validate").bind("click", validate);
 </form>
 
 <h2 id='result'></h2>
+
