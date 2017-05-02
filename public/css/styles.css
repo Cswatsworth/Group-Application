@@ -20,20 +20,20 @@
    text-decoration: none;
    vertical-align: middle;
    }*/
-.button:hover {
+/*.button:hover {
    border-top-color: #28597a;
    background: #28597a;
    color: #ccc;
    cursor: pointer;
-   }
-.button:active {
+   }*/
+/*.button:active {
    border-top-color: #1b435e;
    background: #1b435e;
-   }
+   }*/
 
-.question {
+/*.question {
   width: 50%rem;
-}
+}*/
 
 div.bg {
   background: url(http://www.minedminds.org/images/MM.jpg) no-repeat;
@@ -114,7 +114,7 @@ h4 {
 
 .rounded-purple{
   padding: 2px;
-  border-color: white;
+  border-color: #03255b;
   border-width: 2px;
   background-color: #68679F;
   color: #03255b;
