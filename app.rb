@@ -39,6 +39,13 @@ db = PG::Connection.new(db_params)
 	post'/login' do
 		session[:email] = params[:email]
 		session[:password] = params[:password]
+		session[:psw_req] = PasswordReqClass.new(params[:password])
+
+			if session[:psw_req].password_requirements == false
+				print "Password"
+
+			else
+
 		db.exec("INSERT INTO login(email, password) VALUES('#{session[:email]}', '#{session[:password]}')");
 		first = ""
 		last = ""
@@ -49,6 +56,7 @@ db = PG::Connection.new(db_params)
 		phonenumber = ""
 		db.exec("INSERT INTO personalinfo(email, password, first, last, street, city, state, zip, phonenumber) VALUES('#{session[:email]}', '#{session[:password]}', '#{first}', '#{last}', '#{street}', '#{city}', '#{state}', '#{zip}', '#{phonenumber}')");
 		redirect '/page1'
+		end
 	end
 
 	get '/page1' do
@@ -113,6 +121,7 @@ db = PG::Connection.new(db_params)
 		session[:question10] = params[:questio10]
 		
 		db.exec("UPDATE questions SET question6='#{session[:question6]}', question7='#{session[:question7]}', question8='#{session[:question8]}', question9='#{session[:question9]}', question10='#{session[:question10]}' WHERE email='#{session[:email]}'");
+
 		redirect '/questionpg3'
 	
 	end
@@ -128,8 +137,14 @@ db = PG::Connection.new(db_params)
 		session[:question13] = params[:question13]
 		session[:question14] = params[:question14]
 		session[:question15] = params[:question15]
-		
+
+
 		db.exec("UPDATE questions SET question11='#{session[:question11]}', question12='#{session[:question12]}', question13='#{session[:question13]}', question14='#{session[:question14]}', question15='#{session[:question15]}' WHERE email='#{session[:email]}'");
+
+		if  
+			p "Please Answer Atleast One!"
+		end
+
 		redirect '/questionpg4'
 	end
 

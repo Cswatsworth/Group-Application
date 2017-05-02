@@ -7,34 +7,34 @@ class TestPassword < Minitest::Test
 	end
 
 	def test_psw_req
-		password = Password.new('Password1')
-		assert_equal(true, password.password_requirments)
+		password = PasswordReqClass.new('Password1')
+		assert_equal(true, password.password_requirements)
 	end
 
 	def test_psw_req_2
-		password = Password.new('Password$')
-		assert_equal(false, password.password_requirments)
+		password = PasswordReqClass.new('Password$')
+		assert_equal(false, password.password_requirements)
 	end
 
 	def test_psw_req_length
-		password = Password.new('Need6')
-		assert_equal(false, password.password_requirments)
+		password = PasswordReqClass.new('Need6')
+		assert_equal(false, password.password_requirements)
 	end
 
 	def test_passwords_match
-		password = Password.new('Password')
+		password = PasswordReqClass.new('Password')
 		confirm = 'Password'
 		assert_equal(true, password.password_match(confirm))
 	end
 
 	def test_passwords_match_2
-		password = Password.new('Password')
+		password = PasswordReqClass.new('Password')
 		confirm = 'Password1'
 		assert_equal(false, password.password_match(confirm))
 	end
 
 	def test_passwords_match_3
-		password = Password.new('Password')
+		password = PasswordReqClass.new('Password')
 		confirm = 'password'
 		assert_equal(false, password.password_match(confirm))
 	end
