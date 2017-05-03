@@ -171,7 +171,13 @@ db = PG::Connection.new(db_params)
     end
 
     get '/review' do
-        erb :review
+                session_email = session[:email]
+#        account_info = db.exec("SELECT * FROM public.personalinfo WHERE email='#{session[:email]}'")||''
+        signin = db.exec("SELECT * FROM personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'");
+        sql = "SELECT * FROM personalinfo WHERE email = '#{session[:email]}'"
+            accountinfo = db.exec(sql)
+        erb :review, locals: {accountinfo: accountinfo}
+       
     end
 
 
