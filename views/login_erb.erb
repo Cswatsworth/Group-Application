@@ -1,15 +1,15 @@
 <center><div class="container rounded-green pure-control-group">
 
   <form action="/login" method="post">
-      
-      <b><p>Email: </b><input type="email" placeholder="Enter Email" name="email" required></p></b>
-      <b><p>Password: </b><input type="password" placeholder="Enter Password" name="password" required></p></b>
+
+      <b><p>Email:</p></b><input type="email" placeholder="Enter Email" name="email" required>
+      <b><p>Password:</p></b><input type="password" placeholder="Enter Password" name="password" required>
 
       <p><button type="submit" class="button pure-button pure-button-primary">Sign-up</button></p>
       <p>Already Have An Account?</p>
 
   </form>
-      
+
   <form action="/account" method="post">
       <p><button type="submit" class="button pure-button pure-button-primary">Sign-in</button></p>
   </form>
@@ -18,7 +18,7 @@
 
   <p>
     <form method='post' action='message'>
-     <p>
+
       <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -29,18 +29,19 @@
     }(document, 'script', 'facebook-jssdk'));</script>
       <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
     </form>
+
   </p>
 
   <p>OR</p>
 
   <form method='post' action='message'>
-    Sign up with Google<p>
+      <p> Sign up with Google</p>p>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="182370847863-48of9fa5cjevk9fqrd5jta7vredjr16e.apps.googleusercontent.com">
-    <div class="g-signin2" data-onsuccess="onSignIn"></div> 
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
   </form>
 
-  </p>
+
 </div>
 </center>
 

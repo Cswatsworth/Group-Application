@@ -7,105 +7,114 @@
     <fieldset>
         <div class="pure-control-group">
             <label for="first">First Name</label>
-            <input id="first" type="text" placeholder="Your First Name" required>
+            <input id="first" name="first"type="text" placeholder="Your First Name" required>
            <!--  <span class="pure-form-message-inline">required</span> -->
         </div>
 
         <div class="pure-control-group">
             <label for="last">Last Name</label>
-            <input id="last" type="text" placeholder="Your Last Name" required>
+            <input id="last" name="last"type="text" placeholder="Your Last Name" required>
             <!-- <span class="pure-form-message-inline">required</span> -->
         </div>
 
-        
+
 
         <div class="pure-control-group">
             <label for="street">Address</label>
-            <input id="street" type="text" placeholder="Street" required>
+            <input id="street" name="street"type="text" placeholder="Street" required>
             <!-- <span class="pure-form-message-inline">required</span> -->
         </div>
 
         <div class="pure-control-group" >
             <label for="state">State</label>
-            <select id="state" required
-            	<option>Select</option>
-				<option>Alaska</option>
-				<option>Alabama</option>
-				<option>Arkansas</option>
-				<option>Arizona</option>
-				<option>California</option>
-				<option>Colorado</option>
-				<option>Connecticut</option>
-				<option>District of Columbia</option>
-				<option>Delaware</option>
-				<option>Florida</option>
-				<option>Georgia</option>
-				<option>Hawaii</option>
-				<option>Iowa</option>
-				<option>Idaho</option>
-				<option>Illinois</option>
-				<option>Indiana</option>
-				<option>Kansas</option>
-				<option>Kentucky</option>
-				<option>Louisiana</option>
-				<option>Massachusetts</option>
-				<option>Maryland</option>
-				<option>Maine</option>
-				<option>Michigan</option>
-				<option>Minnesota</option>
-				<option>Missouri</option>
-				<option>Mississippi</option>
-				<option>Montana</option>
-				<option>North Carolina</option>
-				<option>North Dakota</option>
-				<option>Nebraska</option>
-				<option>New Hampshire</option>
-				<option>New Jersey</option>
-				<option>New Mexico</option>
-				<option>Nevada</option>
-				<option>New York</option>
-				<option>Ohio</option>
-				<option>Oklahoma</option>
-				<option>Oregon</option>
-				<option>Pennsylvania</option>
-				<option>Puerto Rico</option>
-				<option>Rhode Island</option>
-				<option>South Carolina</option>
-				<option>South Dakota</option>
-				<option>Tennessee</option>
-				<option>Texas</option>
-				<option>Utah</option>
-				<option>Virginia</option>
-				<option>Vermont</option>
-				<option>Washington</option>
-				<option>Wisconsin</option>
-				<option>West Virginia</option>
-				<option>Wyoming</option> 
-			</select>
+            <select id="state" name="state"required>
+                <option>Select</option>
+                <option>Alaska</option>
+                <option>Alabama</option>
+                <option>Arkansas</option>
+                <option>Arizona</option>
+                <option>California</option>
+                <option>Colorado</option>
+                <option>Connecticut</option>
+                <option>District of Columbia</option>
+                <option>Delaware</option>
+                <option>Florida</option>
+                <option>Georgia</option>
+                <option>Hawaii</option>
+                <option>Iowa</option>
+                <option>Idaho</option>
+                <option>Illinois</option>
+                <option>Indiana</option>
+                <option>Kansas</option>
+                <option>Kentucky</option>
+                <option>Louisiana</option>
+                <option>Massachusetts</option>
+                <option>Maryland</option>
+                <option>Maine</option>
+                <option>Michigan</option>
+                <option>Minnesota</option>
+                <option>Missouri</option>
+                <option>Mississippi</option>
+                <option>Montana</option>
+                <option>North Carolina</option>
+                <option>North Dakota</option>
+                <option>Nebraska</option>
+                <option>New Hampshire</option>
+                <option>New Jersey</option>
+                <option>New Mexico</option>
+                <option>Nevada</option>
+                <option>New York</option>
+                <option>Ohio</option>
+                <option>Oklahoma</option>
+                <option>Oregon</option>
+                <option>Pennsylvania</option>
+                <option>Puerto Rico</option>
+                <option>Rhode Island</option>
+                <option>South Carolina</option>
+                <option>South Dakota</option>
+                <option>Tennessee</option>
+                <option>Texas</option>
+                <option>Utah</option>
+                <option>Virginia</option>
+                <option>Vermont</option>
+                <option>Washington</option>
+                <option>Wisconsin</option>
+                <option>West Virginia</option>
+                <option>Wyoming</option>
+            </select>
         </div>
+
+
+
+        <div class="pure-control-group">
+            <label for="city">City</label>
+            <input id="city" name="city"type="text" placeholder="City" required>
+            <!-- <span class="pure-form-message-inline">required</span> -->
+        </div>
+
 
         <div class="pure-control-group">
             <label for="zip">Zip / Postal Code</label>
-            <input id="zip" type="text" placeholder="5 Digit Zip" required>
+            <input id="zip" name="zip"type="text" placeholder="5 Digit Zip" required>
             <!-- <span class="pure-form-message-inline">required</span> -->
         </div>
 
         <div class="pure-control-group">
             <label for="phonenumber">Phonenumber</label>
-            <input id="phonenumber" type="Digit" placeholder="+ (XXX) XXX-XXXX" required>
+            <input id="phonenumber" name="phonenumber"type="Digit" placeholder="+ (XXX) XXX-XXXX" required>
             <!-- <span class="pure-form-message-inline">required</span> -->
         </div>
 
         <div class="pure-control-group">
             <label for="email">Email Address</label>
-            <input id="email" type="email" placeholder="Email Address" value=<%=session[:email]%> required>
+            <input id="email" name="email"type="email" placeholder="Email Address" value=<%=session[:email]%> required>
             <!-- <span class="pure-form-message-inline">required</span> -->
         </div>
 
         <div class="pure-controls">
- 	       <button type="submit" class="pure-button pure-button-primary">Submit</button>
- 	       <button onclick="goBack()" class="pure-button pure-button-primary">Go Back</button>
-        </div>       
+            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+            <button onclick="goBack()" class="pure-button pure-button-primary">Go Back</button>
+        </div>
     </fieldset>
 </form>
 </center>

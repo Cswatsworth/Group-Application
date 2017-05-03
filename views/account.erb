@@ -1,45 +1,49 @@
 <div class="container">
-	<form action="account" method="post"> //need to put action
+    <form action="account" method="post">
 
 
 <p><table></p>
-		<thead>
-			<tr>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Street</th>
-				<th>City</th>
-				<th>State</th>
-				<th>Zip</th>
-				<th>Phone Number</th>
-				<th>Email Address</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%account.each do |contact|%>
-			<tr>
-				<td><%=contact["email"]%></td>email?
-				<td><%=contact["last"] %></td>
-				<td><%=contact["street"] %></td>
-				<td><%=contact["city"] %></td>
-				<td><%=contact["state"] %></td>
-				<td><%=contact["zip"] %></td>
-				<td><%=contact["phonenumber"] %></td>
-				<td><%=contact["email"] %></td>
-			</tr>
-			<% end -%>
-		</tbody>
-	</table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Phone Number</th>
+                <th>Email Address</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <%if accountinfo == session[:email] %>
+
+            <tr>
+                <td><%=accountinfo["first"]%></td>
+                <td><%=accountinfo["last"] %></td>
+                <td><%=accountinfo["street"] %></td>
+                <td><%=accountinfo["city"] %></td>
+                <td><%=accountinfo["state"] %></td>
+                <td><%=accountinfo["zip"] %></td>
+                <td><%=accountinfo["phonenumber"] %></td>
+                <td><%=accountinfo["email"] %></td>
+            </tr>
 
 
-<%=session["email"]%>
+            <%end%>
+        </tbody>
+    </table>
 
 
 
 
 
-	<p>
-		<button type="submit" class="button">Continue Application</button>
-		<button type="submit" class="button">Logout</button>
-	</p>
+
+
+
+    <p>
+        <a class="btn" href="/p_info">Continue Application</a>
+        <button type="submit" class="button">Logout</button>
+    </p>
 </div>
