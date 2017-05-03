@@ -1,40 +1,35 @@
-/*button {
-   border-top: 1px solid #96d1f8;
-   background: #65a9d7;
-   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
-   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
-   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
-   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
-   background: -o-linear-gradient(top, #3e779d, #65a9d7);
-   padding: 7px 14px;
-   -webkit-border-radius: 11px;
-   -moz-border-radius: 11px;
-   border-radius: 11px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: white;
-   font-size: 12px;
-   font-family: Georgia, Serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }*/
-/*.button:hover {
-   border-top-color: #28597a;
-   background: #28597a;
-   color: #ccc;
-   cursor: pointer;
-   }*/
-/*.button:active {
-   border-top-color: #1b435e;
-   background: #1b435e;
-   }*/
+.button-go,
+        .button-error,
+        .button-warning,
+        .button-secondary, .btn-mm {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            font-size: 85%;
+        }
+        .btn-mm {
+            background: rgb(25, 25, 112); /* this is a darkblue */
+        }
+        .button-go {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
 
-/*.question {
-  width: 50%rem;
-}*/
+        .button-error {
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }
 
+        .button-warning {
+            /*background: rgb(223, 117, 20);*/ /* this is an orange */
+            background: rgb(255, 165, 0); /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(66, 184, 221); /* this is a light blue */
+        }
+  .btn-small {
+            font-size: 85%;
+        }
+        
 div.bg {
   background: url(http://www.minedminds.org/images/MM.jpg) no-repeat;
   opacity: 0.5;
@@ -56,6 +51,9 @@ div.bg {
   box-sizing: border-box;
 }
 
+#review-header {
+  font-size: 30px;
+}
 
 .img {
     width: max-width;

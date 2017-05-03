@@ -1,25 +1,61 @@
+
+<body>
 <center><div class="container rounded-green pure-control-group">
 
   <form action="/login" method="post">
 
-      <b><p>Email:</p></b><input type="email" placeholder="Enter Email" name="email" required>
-      <b><p>Password:</p></b><input type="password" placeholder="Enter Password" name="password" required>
+      <b><p>Email:</p></b>
+      <p><input type="email" placeholder="Enter Email" name="email" required></p>
+      <b><p>Password:</p></b><input type="password" placeholder="Enter Password" name="password" required></p>
 
-      <p><button type="submit" class="button pure-button pure-button-primary">Sign-up</button></p>
+      <p><button type="submit" class="button pure-button button-warning">Create Account</button></p>
       <p>Already Have An Account?</p>
 
   </form>
 
   <form action="/account" method="post">
-      <p><button type="submit" class="button pure-button pure-button-primary">Sign-in</button></p>
+      <p><button type="submit" class="button pure-button button-go">Login</button></p>
   </form>
 
     <p>OR</p>
 
   <p>
-    <form method='post' action='message'>
+  <!--  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '686308438238380',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();   
+  };
 
-      <div id="fb-root"></div>
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!-- Facebook Javascript Code -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=686308438238380";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Facebook button -->
+<div class="fb-login-button" data-width="250" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
+
+    <!-- <form method='post' action='message'> -->
+
+      <!-- <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -28,14 +64,14 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
       <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-    </form>
+    </form> -->
 
   </p>
 
   <p>OR</p>
 
   <form method='post' action='message'>
-      <p> Sign up with Google</p>p>
+      <p> Sign up with Google</p>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="182370847863-48of9fa5cjevk9fqrd5jta7vredjr16e.apps.googleusercontent.com">
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -46,5 +82,6 @@
 </center>
 
  <form action='/delete_table' method='post'>
-    <input type = "submit" value = "Delete Data"> if you dare!
+    <input type = "submit" value = "Delete Data" class="button-error"> if you dare!
    </form>
+</body>
