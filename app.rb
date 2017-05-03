@@ -239,7 +239,7 @@ db = PG::Connection.new(db_params)
         end
     end
 
-
+    # facebook login**** add gets (facebook, google)
 
 
 #***DELETE FUNCTION*****
