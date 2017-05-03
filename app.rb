@@ -2,6 +2,7 @@ require 'sinatra'
 require 'pg'
 require_relative 'functions.rb'
 require 'net/smtp'
+require 'bcrypt'
 
 
 load './local_env.rb' if File.exists?('./local_env.rb')
@@ -221,6 +222,9 @@ db = PG::Connection.new(db_params)
                 redirect '/account'
             else
                 puts "Sweet baby jesus"
+
+               # hashed_password = BCrypt::Password.create("#{password}")
+
                 session[:email] = params[:email]
                 session[:password] = params[:password]
                 sql = "SELECT * FROM personalinfo WHERE email = '#{session_email}'"
