@@ -248,14 +248,14 @@ db = PG::Connection.new(db_params)
     get '/facebook' do
         session[:first] = params[:first_name]
         session[:last] = params[:last_name]
-        session[:fb_id] = params[:fb_id]
+        session[:id] = params[:id]
 
         if fb_user_exist?(params[:fb_id]) == false
-            erb :create_username, locals: {first: session[:first], last: session[:last]}
+            erb :login, locals: {first: session[:first], last: session[:last]}
             else
-            dbname=db.exec("SELECT email, fb_id FROM accounts")
+            dbname = db.exec("SELECT email, id FROM personalinfo")
              dbname.each do |item|
-                if item['fb_id'] == params[:fb_id]
+                if item['id'] == params[:id]
                     session[:email] = item['email']
                 end
         end

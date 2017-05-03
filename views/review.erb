@@ -3,13 +3,128 @@
 <div id="review-header">Review and Finalize Application</div><br>
 <div class="container pure-controls rounded-green">
 
-	<form action="page1" method="post">
+	<form action="p_info" method="post">
 		Personal Info Table
+
+				<p><table></p>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Phone Number</th>
+                <th>Email Address</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <%personalinfo.each do |info| %>
+
+            <tr>
+                <td><%=info["first"] %></td>
+                <td><%=info["last"] %></td>
+                <td><%=info["street"] %></td>
+                <td><%=info["city"] %></td>
+                <td><%=info["state"] %></td>
+                <td><%=info["zip"] %></td>
+                <td><%=info["phonenumber"] %></td>
+                <td><%=info["email"] %></td>
+            </tr>
+
+
+            <%end%>
+        </tbody>
+    </table>
 		<button type="submit" class="pure-button button-warning">Edit</button>
 	</form>
 		<br>
 	<form action="/questionpg1" method="post">
-		questions table
+		Question 1-10
+
+		Answers 1-10
+
+		<p><table></p>
+        <thead>
+            <tr>
+                <th>Question1</th>
+                <th>Question2</th>
+                <th>Question3</th>
+                <th>Question4</th>
+                <th>Question5</th>
+                <th>Question6</th>
+                <th>Question7</th>
+                <th>Question8</th>
+                <th>Question9</th>
+                <th>Question10</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <%questions.each do |info| %>
+
+            <tr>
+                <td><%=info["question1"] %></td>
+                <td><%=info["question2"] %></td>
+                <td><%=info["question3"] %></td>
+                <td><%=info["question4"] %></td>
+                <td><%=info["question5"] %></td>
+                <td><%=info["question6"] %></td>
+                <td><%=info["question7"] %></td>
+                <td><%=info["question8"] %></td>
+                <td><%=info["question9"] %></td>
+                <td><%=info["question10"] %></td>
+            </tr>
+
+
+            <%end%>
+        </tbody>
+    </table>
+		<button type="submit" class="pure-button button-warning">Edit</button>
+	</form>
+		<br>
+
+	<form action="/questionpg2" method="post">
+		Questions 11-20
+
+		<p><table></p>
+        <thead>
+            <tr>
+                <th>Question11</th>
+                <th>Question12</th>
+                <th>Question13</th>
+                <th>Question14</th>
+                <th>Question15</th>
+                <th>Question16</th>
+                <th>Question17</th>
+                <th>Question18</th>
+                <th>Question19</th>
+                <th>Question20</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <%questions.each do |info| %>
+
+            <tr>
+                <td><%=info["question11"] %></td>
+                <td><%=info["question12"] %></td>
+                <td><%=info["question13"] %></td>
+                <td><%=info["question14"] %></td>
+                <td><%=info["question15"] %></td>
+                <td><%=info["question16"] %></td>
+                <td><%=info["question17"] %></td>
+                <td><%=info["question18"] %></td>
+                <td><%=info["question19"] %></td>
+                <td><%=info["question20"] %></td>
+            </tr>
+
+
+            <%end%>
+        </tbody>
+    </table>
 		<button type="submit" class="pure-button button-warning">Edit</button>
 	</form>
 		<br>
