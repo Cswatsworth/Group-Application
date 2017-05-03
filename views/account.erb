@@ -17,17 +17,17 @@
         </thead>
         <tbody>
 
-            <%if accountinfo == session[:email] %>
+            <%accountinfo.each do |info| %>
 
             <tr>
-                <td><%=accountinfo["first"]%></td>
-                <td><%=accountinfo["last"] %></td>
-                <td><%=accountinfo["street"] %></td>
-                <td><%=accountinfo["city"] %></td>
-                <td><%=accountinfo["state"] %></td>
-                <td><%=accountinfo["zip"] %></td>
-                <td><%=accountinfo["phonenumber"] %></td>
-                <td><%=accountinfo["email"] %></td>
+                <td><%=info["first"] %></td>
+                <td><%=info["last"] %></td>
+                <td><%=info["street"] %></td>
+                <td><%=info["city"] %></td>
+                <td><%=info["state"] %></td>
+                <td><%=info["zip"] %></td>
+                <td><%=info["phonenumber"] %></td>
+                <td><%=info["email"] %></td>
             </tr>
 
 

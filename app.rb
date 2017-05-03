@@ -176,8 +176,9 @@ db = PG::Connection.new(db_params)
 
     post '/send_email' do
 
-#        send_email
+        send_email
         #Might need to tweak this to redirect to desired page or create an email successfully sent page
+        #have to change email settings to 'less secure apps'
         redirect '/complete'
     end
 
@@ -194,6 +195,7 @@ db = PG::Connection.new(db_params)
 
 
     get '/account' do
+        session_email = session[:email]
 #        account_info = db.exec("SELECT * FROM public.personalinfo WHERE email='#{session[:email]}'")||''
          signin = db.exec("SELECT * FROM personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'");
         sql = "SELECT * FROM personalinfo WHERE email = '#{session[:email]}'"
