@@ -44,7 +44,7 @@ db = PG::Connection.new(db_params)
                         #     if session[:psw_req].password_requirements == false
                         #          "Password"
                         #     else
-
+            
 #        db.exec("INSERT INTO personalinfo(email, password) VALUES('#{session[:email]}', '#{session[:password]}')");
         first = ""
         last = ""
@@ -239,7 +239,25 @@ db = PG::Connection.new(db_params)
         end
     end
 
-    # facebook login**** add gets (facebook, google)
+    #****FACEBOOK LOGIN****#
+
+    get '/facebook' do
+        session[:first] = params[:first_name]
+        session[:last] = params[:last_name]
+        session[:fb_id] = params[:fb_id]
+
+        if fb_user_exist?(params[:fb_id]) == false
+            erb :create_username, locals: {first: session[:first], last: session[:last]}
+            else
+            dbname=db.exec("SELECT email, fb_id FROM accounts")
+             dbname.each do |item|
+                if item['fb_id'] == params[:fb_id]
+                    session[:email] = item['email']
+                end
+        end
+        redirect '/personalinfo'
+    end
+end
 
 
 #***DELETE FUNCTION*****
