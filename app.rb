@@ -19,16 +19,16 @@ db = PG::Connection.new(db_params)
 
     enable :sessions
 
-    # get '/' do
-    #     session_email = session[:email]
- #        session_password = session[:password]
- #        if (session_email == nil || session_password == nil)
-    #         login = db.exec("SELECT email, password FROM login");
-    #         erb :login_erb, locals: {login: login}
- #        else
- #            redirect '/p_info'
- #        end
-    # end
+     # get '/' do
+     #     session_email = session[:email]
+     #    session_password = session[:password]
+     #     if (session_email == nil || session_password == nil)
+     #         login = db.exec("SELECT email, password FROM login");
+     #         erb :login_erb, locals: {login: login}
+     #     else
+     #         redirect '/p_info'
+     #     end
+     # end
 
 
     get '/' do
@@ -40,13 +40,7 @@ db = PG::Connection.new(db_params)
     post'/login' do
         session[:email] = params[:email]
         session[:password] = params[:password]
-                        # session[:psw_req] = PasswordReqClass.new(params[:password])
 
-                        #     if session[:psw_req].password_requirements == false
-                        #          "Password"
-                        #     else
-            
-#        db.exec("INSERT INTO personalinfo(email, password) VALUES('#{session[:email]}', '#{session[:password]}')");
         first = ""
         last = ""
         street = ""
@@ -214,7 +208,7 @@ db = PG::Connection.new(db_params)
     end
 
     get '/invalid_login' do
-        message = 'The username or password you entered is incorrect.'
+        session[:message] = 'The username or password you entered is incorrect.'
         erb :login, locals: {message: message}  
     end
 

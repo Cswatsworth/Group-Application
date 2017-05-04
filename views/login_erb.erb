@@ -7,7 +7,7 @@
       <b><p>Email:</p></b>
       <p><input type="email" placeholder="Enter Email" name="email" required></p>
       <b><p>Password:</p></b><input type="password" placeholder="Enter Password" name="password" required></p>
-      
+
 
       <p><button type="submit" class="button pure-button button-warning">Create Account</button></p>
       <p>Already Have An Account?</p>
@@ -15,7 +15,7 @@
   </form>
 
   <form action="/check_login" method="post">
-      <p><button type="submit" class="button pure-button button-go">Login</button></p><p class='credentials'><%=message%><p>
+      <p><button type="submit" class="button pure-button button-go">Login</button></p><p><%=session[:message]%><p>
   </form>
 
     <p>OR</p>
@@ -50,8 +50,4 @@
 
 </div>
 </center>
-
- <form action='/delete_table' method='post'>
-    <input type = "submit" value = "Delete Data" class="pure-button button-error"> if you dare!
-   </form>
 </body>
