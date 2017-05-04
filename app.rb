@@ -217,7 +217,7 @@ db = PG::Connection.new(db_params)
     end
 
 
-##************************** FOR QUESTIONS 16-20 ^^WILL NEED TO CHANGE REDIRECT TO QUESTIONPG4 **************************##
+##************************** FOR QUESTIONS 16-20 ^^WILL NEED TO CHANGE REDIRECT TO QUESTIONPG4*************************##
     
     # get '/questionpg4' do
     #     questions = db.exec("SELECT question16, question17, question18, question18, question20, email FROM personalinfo");
@@ -267,6 +267,15 @@ db = PG::Connection.new(db_params)
         erb :account, locals: {accountinfo: accountinfo}
     end
 
+
+    post '/save_quit' do
+        redirect '/'
+    end
+
+
+
+
+
  #****FACEBOOK LOGIN****#
 
     get '/facebook' do
@@ -299,7 +308,7 @@ end
         username = from
         password = 'mmapplication2017'
 
-         msg = "Subject: Account Confirmation\n\n Account '#{session[:email]}' has been succesfully created!"
+         msg = "Subject: Account Confirmation\n\n Hello!, '#{session[:first]}'. Thank you for completing the Mined Minds online application! For more information on Mined Minds visit their website at: http://www.minedminds.org/"
         smtp = Net::SMTP.new 'smtp.gmail.com', 587
         smtp.enable_starttls
         smtp.start(domain, username, password, :login) do
