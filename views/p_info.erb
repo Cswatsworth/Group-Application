@@ -7,27 +7,27 @@
     <fieldset>
         <div class="pure-control-group">
             <label for="first">First Name</label>
-            <input id="first" name="first" type="text" placeholder="Your First Name" value=<%=session[:first]%> required>
-           <!--  <span class="pure-form-message-inline">required</span> -->
+            <input id="first" name="first" type="text" placeholder="Your First Name" value=<%=session[:first]%>>
+            <span class="pure-form-message-inline">required</span>
         </div>
 
         <div class="pure-control-group">
             <label for="last">Last Name</label>
-            <input id="last" name="last" type="text" placeholder="Your Last Name" value=<%=session[:last]%> required>
-            <!-- <span class="pure-form-message-inline">required</span> -->
+            <input id="last" name="last" type="text" placeholder="Your Last Name" value=<%=session[:last]%>>
+            <span class="pure-form-message-inline">required</span>
         </div>
 
 
 
         <div class="pure-control-group">
             <label for="street">Address</label>
-            <input id="street" name="street" type="text" placeholder="Street" value=<%=session[:street]%> required>
-            <!-- <span class="pure-form-message-inline">required</span> -->
+            <input id="street" name="street" type="text" placeholder="Street" value=<%=session[:street]%>>
+            <span class="pure-form-message-inline">required</span>
         </div>
 
         <div class="pure-control-group" >
             <label for="state">State</label>
-            <select id="state" name="state" value=<%=session[:state]%> required>
+            <select id="state" name="state" value=<%=session[:state]%>>
                 <option>Select</option>
                 <option>Alaska</option>
                 <option>Alabama</option>
@@ -82,33 +82,34 @@
                 <option>West Virginia</option>
                 <option>Wyoming</option>
             </select>
+            <span class="pure-form-message-inline">required</span>
         </div>
 
 
 
         <div class="pure-control-group">
             <label for="city">City</label>
-            <input id="city" name="city" type="text" placeholder="City" value=<%=session[:city]%> required>
-            <!-- <span class="pure-form-message-inline">required</span> -->
+            <input id="city" name="city" type="text" placeholder="City" value=<%=session[:city]%>>
+            <span class="pure-form-message-inline">required</span>
         </div>
 
 
         <div class="pure-control-group">
             <label for="zip">Zip / Postal Code</label>
-            <input id="zip" name="zip" type="text" placeholder="5 Digit Zip" value=<%=session[:city]%> required>
-            <!-- <span class="pure-form-message-inline">required</span> -->
+            <input id="zip" name="zip" type="text" placeholder="5 Digit Zip" value=<%=session[:city]%>>
+            <span class="pure-form-message-inline">required</span>
         </div>
 
         <div class="pure-control-group">
             <label for="phonenumber">Phonenumber</label>
-            <input id="phonenumber" name="phonenumber" type="Digit" placeholder="+ (XXX) XXX-XXXX" value=<%=session[:phonenumber]%> required>
-            <!-- <span class="pure-form-message-inline">required</span> -->
+            <input id="phonenumber" name="phonenumber" type="Digit" placeholder="+ (XXX) XXX-XXXX" value=<%=session[:phonenumber]%>>
+            <span class="pure-form-message-inline">required</span>
         </div>
 
         <div class="pure-control-group">
             <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" placeholder="Email Address" value=<%=session[:email]%> required>
-            <!-- <span class="pure-form-message-inline">required</span> -->
+            <input id="email" name="email" type="email" placeholder="Email Address" value=<%=session[:email]%>>
+            <span class="pure-form-message-inline">required</span>
         </div>
 
         <div class="pure-controls">
