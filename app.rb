@@ -2,6 +2,7 @@ require 'sinatra'
 require 'pg'
 require_relative 'functions.rb'
 require 'net/smtp'
+require 'bcrypt'
 
 
 load './local_env.rb' if File.exists?('./local_env.rb')
@@ -44,7 +45,7 @@ db = PG::Connection.new(db_params)
                         #     if session[:psw_req].password_requirements == false
                         #          "Password"
                         #     else
-
+            
 #        db.exec("INSERT INTO personalinfo(email, password) VALUES('#{session[:email]}', '#{session[:password]}')");
         first = ""
         last = ""
@@ -170,7 +171,13 @@ db = PG::Connection.new(db_params)
     end
 
     get '/review' do
-        erb :review
+                session_email = session[:email]
+#        account_info = db.exec("SELECT * FROM public.personalinfo WHERE email='#{session[:email]}'")||''
+        signin = db.exec("SELECT * FROM personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'");
+        sql = "SELECT * FROM personalinfo WHERE email = '#{session[:email]}'"
+            accountinfo = db.exec(sql)
+        erb :review, locals: {accountinfo: accountinfo}
+       
     end
 
 
@@ -221,6 +228,9 @@ db = PG::Connection.new(db_params)
                 redirect '/account'
             else
                 puts "Sweet baby jesus"
+
+               # hashed_password = BCrypt::Password.create("#{password}")
+
                 session[:email] = params[:email]
                 session[:password] = params[:password]
                 sql = "SELECT * FROM personalinfo WHERE email = '#{session_email}'"
@@ -239,7 +249,25 @@ db = PG::Connection.new(db_params)
         end
     end
 
-    # facebook login**** add gets (facebook, google)
+    #****FACEBOOK LOGIN****#
+
+    get '/facebook' do
+        session[:first] = params[:first_name]
+        session[:last] = params[:last_name]
+        session[:id] = params[:id]
+
+        if fb_user_exist?(params[:fb_id]) == false
+            erb :login, locals: {first: session[:first], last: session[:last]}
+            else
+            dbname = db.exec("SELECT email, id FROM personalinfo")
+             dbname.each do |item|
+                if item['id'] == params[:id]
+                    session[:email] = item['email']
+                end
+        end
+        redirect '/personalinfo'
+    end
+end
 
 
 #***DELETE FUNCTION*****
