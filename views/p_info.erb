@@ -1,9 +1,9 @@
 <!-- Start Pure Form HTML -->
-<center>
+<!-- <center> -->
 <div class="container rounded-green">
 <h3><strong>PLEASE ENTER CONTACT INFORMATION</h3></strong>
 <!-- <form class="pure-form pure-form-aligned"> -->
-<form action="/personalinfo" method="post" class="pure-form pure-form-aligned">
+<form action="/personalinfo" method="post" class="pure-form pure-form-aligned pure-controls">
     <fieldset>
         <div class="pure-control-group">
             <label for="first">First Name</label>
@@ -16,8 +16,6 @@
             <input id="last" name="last" type="text" placeholder="Your Last Name" value=<%=session[:last]%>>
             <span class="pure-form-message-inline">required</span>
         </div>
-
-
 
         <div class="pure-control-group">
             <label for="street">Address</label>
@@ -111,6 +109,31 @@
             <input id="email" name="email" type="email" placeholder="Email Address" value=<%=session[:email]%>>
             <span class="pure-form-message-inline">required</span>
         </div>
+        <div class="pure-control-group">
+            <label for="linkedin">LinkedIn</label>
+            <input id="linkedin" name="linkedin" type="text" placeholder="LinkedIn url" value=<%=session[:linkedin]%>>
+            <!-- <span class="pure-form-message-inline">required</span> -->
+        </div>
+        <div class="pure-control-group">
+            <label for="twitter">Twitter</label>
+            <input id="twitter" name="twitter" type="text" placeholder="Twitter Username" value=<%=session[:twitter]%>>
+          <!--   <span class="pure-form-message-inline">required</span> -->
+        </div>
+        <div class="pure-control-group">
+            <label for="facebook">Facebook</label>
+            <input id="facebook" name="facebook" type="text" placeholder="Facebook link" value=<%=session[:facebook]%>>
+            <!-- <span class="pure-form-message-inline">required</span> -->
+        </div>
+        <div class="pure-control-group">
+            <label for="github">Github</label>
+            <input id="github" name="github" type="text" placeholder="Github Username" value=<%=session[:github]%>>
+            <!-- <span class="pure-form-message-inline">required</span> -->
+        </div>
+        <div class="pure-control-group">
+            <label for="other">Other</label>
+            <input id="other" name="other" type="text" placeholder="Other url/social media" value=<%=session[:other]%>>
+            <!-- <span class="pure-form-message-inline">required</span> -->
+        </div>
 
         <div class="pure-controls">
             <button type="submit" class="pure-button button-go">Continue</button>
@@ -118,5 +141,5 @@
         </div>
     </fieldset>
 </form>
-</center>
+<!-- </center> -->
 </div>

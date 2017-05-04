@@ -2,20 +2,21 @@
 <body>
 <center><div class="container rounded-green pure-control-group">
 
-  <form action="/check_login" method="post">
+  <form action="/login" method="post">
 
       <b><p>Email:</p></b>
       <p><input type="email" placeholder="Enter Email" name="email" required></p>
       <b><p>Password:</p></b><input type="password" placeholder="Enter Password" name="password" required></p>
 
 
-      <p><button type="submit" class="button pure-button btn-mm">Sign-in</button></p>
+      <p><button type="submit" class="button pure-button button-warning">Create Account</button></p>
+      <p>Already Have An Account?</p>
+
   </form>
 
-<p>Need To Create An Account?</p>
-<form action="/create_account" method="post">
-    <p><button type="submit" class="button pure-button button-warning">Create Account</button></p>
-</form>
+  <form action="/check_login" method="post">
+      <p><button type="submit" class="button pure-button btn-mm">Login</button></p><p><%=session[:message]%><p>
+  </form>
 
     <p>OR</p>
 
