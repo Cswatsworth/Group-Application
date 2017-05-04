@@ -23,6 +23,39 @@ db = PG::Connection.new(db_params)
     get '/' do
         session[:email] = nil
         session[:password] = nil
+        session[:first] = nil
+        session[:last] = nil
+        session[:street] = nil
+        session[:city] = nil
+        session[:state] = nil
+        session[:zip] = nil
+        session[:phonenumber] = nil
+        session[:linkedin] = nil
+        session[:twitter] = nil
+        session[:facebook] = nil
+        session[:github] = nil
+        session[:other] = nil
+        session[:question1] = nil
+        session[:question2] = nil
+        session[:question3] = nil
+        session[:question4] = nil
+        session[:question5] = nil
+        session[:question6] = nil
+        session[:question7] = nil
+        session[:question8] = nil
+        session[:question9] = nil
+        session[:question10] = nil
+        session[:question11] = nil
+        session[:question12] = nil
+        session[:question13] = nil
+        session[:question14] = nil
+        session[:question15] = nil
+        session[:question16] = nil
+        session[:question17] = nil
+        session[:question18] = nil
+        session[:question19] = nil
+        session[:question20] = nil
+
         login = db.exec("SELECT email FROM personalinfo");
         erb :login#, locals: {login: login}
     end
