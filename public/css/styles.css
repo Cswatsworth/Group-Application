@@ -7,35 +7,41 @@
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
             font-size: 85%;
         }
-        .btn-mm {
-            background: rgb(25, 25, 112); /* this is a darkblue */
-        }
-        .button-go {
-            background: rgb(28, 184, 65); /* this is a green */
-        }
+.btn-mm {
+    background: rgb(25, 25, 112); /* this is a darkblue */
+}
+.button-go {
+    background: rgb(28, 184, 65); /* this is a green */
+}
 
-        .button-error {
-            background: rgb(202, 60, 60); /* this is a maroon */
-        }
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
 
-        .button-warning {
-            /*background: rgb(223, 117, 20);*/ /* this is an orange */
-            background: rgb(255, 165, 0); /* this is an orange */
-        }
+.button-warning {
+    /*background: rgb(223, 117, 20);*/ /* this is an orange */
+    background: rgb(255, 165, 0); /* this is an orange */
+}
 
-        .button-secondary {
-            background: rgb(66, 184, 221); /* this is a light blue */
-        }
-  .btn-small {
-            font-size: 85%;
-        }
-        
-div.bg {
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+.btn-small {
+          font-size: 85%;
+      }
+.button-position {
+  display:inline-block;
+  width:100%;
+  overflow: auto;
+  white-space: nowrap;
+  margin:0px auto;
+}
+/*div.bg {
   background: url(http://www.minedminds.org/images/MM.jpg) no-repeat;
   opacity: 0.5;
   width: max-width;
   height: auto;
-  }
+  }*/
 
 /* Clear floats */
 .clearfix::after {
@@ -43,7 +49,9 @@ div.bg {
     clear: both;
     display: table;
     }
-
+#logo-big {
+  width: 1120px;
+}
 .form {
   width: 50%;
   padding: 12px 20px;
@@ -71,14 +79,10 @@ h3 {
   font-family: Helvetica;
   color: #03255b;
 }
-#blue-spacer {
+.blue-spacer {
   border-width: 9px;
   border-color: #1D297B;
   }
-/*.spacer {
-  border-width: 9px;
-  border-color: white;
-  }*/
 h4 {
   font-size: 20px;
   font-family: Helvetica;
@@ -86,22 +90,12 @@ h4 {
 .logo {
   position: relative;
   width: 10px;
-  height: 10px
+  height: 10px;
   float: left;
   margin-top: 16px;
 }
-
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-    .button {
-      width: 100%;
-      }
-    }
-
 .rounded-green{
   padding: 2px;
-  border-color: white;
-  border-width: 2px;
   background-color: #66C3AD;
   color: #03255b;
   font-weight: bold;
@@ -112,8 +106,6 @@ h4 {
 
 .rounded-purple{
   padding: 2px;
-  border-color: #03255b;
-  border-width: 2px;
   background-color: #68679F;
   color: #03255b;
   font-weight: bold;
@@ -137,11 +129,17 @@ label {
   color: #03255b;
 }
 .answer-box {
-  border-color: #03255b; 
-
-  width: 1120px;
+  border-color: #03255b;  
+  width: 100%;
   height: 100px;
 }
 .skinny-font {
   font-weight: lighter;
 }
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .button {
+      width: 100%;
+      }
+    }
