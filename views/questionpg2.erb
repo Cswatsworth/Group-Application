@@ -2,20 +2,13 @@
 <form action="/questions1" method="post">
 <p><h3>Questions #6-10, pg.2</h3></p>
 <!-- MULTIPLE CHOICE -->
-<!-- New Buttons -->
 <p>
 <div class="pure-controls">
  	<button type="submit" class="pure-button button-go">Continue</button>
  	<button onclick="goBack()" class="pure-button btn-mm">Go Back</button>
 </div>
 </p>
-<!-- Old Buttons -->
-<!-- <p>
-	<button type="submit" class="button">Next Page</button>
-	<button onclick="goBack()">Go Back</button>
-</p> -->
-
-<div required class="rounded-green question">
+<!-- <div required class="rounded-green question">
 <p><STRONG>Question 6</STRONG>: A, B, C or D?</p>
 <p><input required type="radio" name="question6" value="lorem"> lorem</p>
 <p><input type="radio" name="question6" value="ipsum"> ipsum</p>
@@ -55,6 +48,40 @@
 <p><input type="radio" name="question10" value="sollicitudin">sollicitudin</p>
 </div>
 
+<p>
+<div class="pure-controls button-position">
+    <div style='float: left';>
+        <button type="submit" class="pure-button button-go">Continue</button>
+        <button onclick="goBack()" class="pure-button btn-mm">Go Back</button>
+    </div>
+    <div style='float: right';>
+        <button type="submit" class="pure-button btn-mm">Save and Quit</button>
+    </div>
+</div>
+</form>
+</p> -->
+<!-- start client questions page 2 -->
+
+<div class="container">
+	<form action="/questions1" method="post">
+		<p><h3>Questions #4-6, pg.2</h3></p>
+		<br>
+		<div class="rounded-green">
+			<p><strong>Question 4</strong> Why are you interested in the training?</p>
+				<input name="question4" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required>
+		</div>
+		<br>
+		<div class="rounded-purple">
+			<p><strong>Question 5</strong> Describe a time when you felt successful.</p>
+				<input name="question5" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required>
+		</div>
+		<br>
+		<div class="rounded-green">
+			<p><strong>Question 6</strong> Describe a time when you have failed and how you handled that.</p>
+				<input name="question6" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required>
+		</div>
+	</form>
+</div>
 <p>
 <div class="pure-controls button-position">
     <div style='float: left';>

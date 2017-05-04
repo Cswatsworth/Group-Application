@@ -1,6 +1,6 @@
-<div class="container">
+<!-- <div class="container">
 	<form action="/questions" method="post">
-		<p><h3>Questions #1-5, pg.1</h3></p>
+		<p><h3>Questions #1-5, pg.1</h3></p> -->
 		<!-- MULTIPLE CHOICE -->
 		<!-- New Buttons -->
 		<p>
@@ -10,7 +10,7 @@
 		</div>
 		</p>
 
-		<div required class="rounded-green question">
+<!-- 		<div required class="rounded-green question">
 			<p><STRONG>Question 1</STRONG>: A, B, C or D?</p>
 			<p><input required type="radio" name="question1" value="lorem"> lorem</p>
 			<p><input type="radio" name="question1" value="ipsum"> ipsum</p>
@@ -60,5 +60,50 @@
 		    </div>
 		</div>
 	</form>
+</div> -->
+
+
+<!-- Start client questions page 1
+ -->
+<div class="container">
+	<form action="/questions" method="post">
+		<p><h3>Questions #1-3, pg.1</h3></p>
+
+		<div required class="rounded-green pure-control-group">
+	            <p><STRONG>Question 1:</STRONG> In a paragraph or so, tell us about yourself.</p>
+	                <input name="question1" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required>
+	                <!-- <span class="pure-form-message-inline">required</span> -->
+	    </div>
+	     <br>
+	    <div class="rounded-purple">
+	        <p><STRONG>Question 2:</STRONG> What industries do you have experience in? Check as many as you like. </p>
+	            <fieldset>
+	                <p><input type="checkbox" name="question2" value="Healthcare"> Healthcare</p>
+	                <p><input type="checkbox" name="question2" value="Technology"> Technology</p>
+	                <p><input type="checkbox" name="question2" value="Sales"> Sales</p>
+	                <p><input type="checkbox" name="question2" value="Marketing"> Marketing</p>
+	                <p><input type="checkbox" name="question2" value="Manufacturing"> Manufacturing</p>
+	                <p><input type="checkbox" name="question2" value="Mining"> Mining</p>
+	                <p><input type="checkbox" name="question2" value="Oil/Gas"> Oil/Gas</p>
+	                <p><input type="checkbox" name="question2" value="Other"> Other</p>
+	            </fieldset>
+	    </div>
+	    <hr>
+	    <div class="rounded-green">
+	        <p><STRONG>Question 3</STRONG>: Why do you want to learn to code?</p>
+	                <input name="question3" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required>
+	                <!-- <span class="pure-form-message-inline">required</span> -->
+	    </div>
+	</form>
 </div>
 
+<br>
+		<div class="pure-controls button-position">
+		    <div style='float: left';>
+		        <button type="submit" class="pure-button button-go">Continue</button>
+		        <button onclick="goBack()" class="pure-button btn-mm">Go Back</button>
+		    </div>
+		    <div style='float: right';>
+		        <button type="submit" class="pure-button btn-mm">Save and Quit</button>
+		    </div>
+		</div>
