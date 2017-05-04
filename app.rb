@@ -54,6 +54,11 @@ db = PG::Connection.new(db_params)
         state = ""
         zip = ""
         phonenumber = ""
+        linkedin = ""
+        twitter = ""
+        facebook = ""
+        github = ""
+        other = ""
         question1 = ""
         question2 = ""
         question3 = ""
@@ -74,13 +79,13 @@ db = PG::Connection.new(db_params)
         question18 = ""
         question19 = ""
         question20 = ""
-        db.exec("INSERT INTO personalinfo(email,password, first, last, street, city, state, zip, phonenumber,question1,question2,question3,question4,question5,question6,question7,question8,question9,question10,question11,question12,question13,question14,question15,question16,question17,question18,question19,question20) VALUES('#{session[:email]}','#{session[:password]}', '#{first}', '#{last}', '#{street}', '#{city}', '#{state}', '#{zip}', '#{phonenumber}','#{question1}', '#{question2}', '#{question3}', '#{question4}', '#{question5}','#{question6}', '#{question7}', '#{question8}', '#{question9}', '#{question10}', '#{question11}', '#{question12}', '#{question13}', '#{question14}', '#{question15}', '#{question16}', '#{question17}', '#{question18}', '#{question19}', '#{question20}')");
+        db.exec("INSERT INTO personalinfo(email,password, first, last, street, city, state, zip, phonenumber, linkedin, twitter, facebook, github, other, question1,question2,question3,question4,question5,question6,question7,question8,question9,question10,question11,question12,question13,question14,question15,question16,question17,question18,question19,question20) VALUES('#{session[:email]}','#{session[:password]}', '#{first}', '#{last}', '#{street}', '#{city}', '#{state}', '#{zip}', '#{phonenumber}', '#{linkedin}', '#{twitter}', '#{facebook}', '#{github}', '#{other}', '#{question1}', '#{question2}', '#{question3}', '#{question4}', '#{question5}','#{question6}', '#{question7}', '#{question8}', '#{question9}', '#{question10}', '#{question11}', '#{question12}', '#{question13}', '#{question14}', '#{question15}', '#{question16}', '#{question17}', '#{question18}', '#{question19}', '#{question20}')");
         redirect '/p_info'
         #end
     end
 
     get '/p_info' do
-        personalinfo = db.exec("SELECT first, last, street, city, state, zip, phonenumber, email FROM personalinfo");
+        personalinfo = db.exec("SELECT first, last, street, city, state, zip, phonenumber, email, linkedin, twitter, github, other FROM personalinfo");
         erb :p_info, locals: {personalinfo: personalinfo}
     end
 
@@ -92,8 +97,13 @@ db = PG::Connection.new(db_params)
         session[:state] = params[:state]
         session[:zip] = params[:zip]
         session[:phonenumber] = params[:phonenumber]
+        session[:linkedin] = params[:linkedin]
+        session[:twitter] = params[:twitter]
+        session[:facebook] = params[:facebook]
+        session[:github] = params[:github]
+        session[:other] = params[:other]
 
-        db.exec("UPDATE personalinfo SET first='#{session[:first]}', last='#{session[:last]}', street='#{session[:street]}', city='#{session[:city]}', state='#{session[:state]}', zip='#{session[:zip]}', phonenumber='#{session[:phonenumber]}' WHERE email='#{session[:email]}'");
+        db.exec("UPDATE personalinfo SET first='#{session[:first]}', last='#{session[:last]}', street='#{session[:street]}', city='#{session[:city]}', state='#{session[:state]}', zip='#{session[:zip]}', phonenumber='#{session[:phonenumber]}', linkedin='#{session[:linkedin]}', twitter='#{session[:twitter]}', facebook='#{session[:facebook]}', github='#{session[:github]}', other='#{session[:other]}' WHERE email='#{session[:email]}'");
         redirect '/questionpg1'
     end
 
@@ -194,11 +204,21 @@ db = PG::Connection.new(db_params)
 
     end
 
-        #****JOSEPH****Was trying a different approach here***
-#    get '/account' do
-#       signin = db.exec("SELECT * FROM personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'");
-#        erb :account,locals: {accountinfo: accountinfo, account: account}
-#    end
+    post '/check_login' do
+        session[:email] = params[:email]
+        if login_match?(session[:email], params[:password])
+            redirect '/account'
+        else
+            redirect '/invalid_login'
+        end
+    end
+
+    get '/invalid_login' do
+        message = 'The username or password you entered is incorrect.'
+        erb :login, locals: {message: message}  
+    end
+
+
 
 
     get '/account' do
@@ -212,42 +232,42 @@ db = PG::Connection.new(db_params)
 
 
 
-       post '/account' do
-        session_email = session[:email]
-        session_password = session[:password]
-        if (session_email == nil || session_password == nil)
-            email = params[:email]
-            password = params[:password]
-            sql = "SELECT email FROM personalinfo WHERE email = '#{session[:email]}' AND password = '#{password}'"
-            puts "Email: #{session[:email]}"
-            puts "Password: #{password}"
-            puts sql
-            account = db.exec(sql)||''
-            if account.num_tuples == 0
-                puts "get out of here"
-                redirect '/account'
-            else
-                puts "Sweet baby jesus"
+#        post '/account' do
+#         session_email = session[:email]
+#         session_password = session[:password]
+#         if (session_email == nil || session_password == nil)
+#             email = params[:email]
+#             password = params[:password]
+#             sql = "SELECT email FROM personalinfo WHERE email = '#{session[:email]}' AND password = '#{password}'"
+#             puts "Email: #{session[:email]}"
+#             puts "Password: #{password}"
+#             puts sql
+#             account = db.exec(sql)||''
+#             if account.num_tuples == 0
+#                 puts "get out of here"
+#                 redirect '/account'
+#             else
+#                 puts "Sweet baby jesus"
 
-               # hashed_password = BCrypt::Password.create("#{password}")
+#                # hashed_password = BCrypt::Password.create("#{password}")
 
-                session[:email] = params[:email]
-                session[:password] = params[:password]
-                sql = "SELECT * FROM personalinfo WHERE email = '#{session_email}'"
-                accountinfo = db.exec(sql)
-#                erb :account, locals: {account: account,account_info: account_info}
-                redirect '/account'
-            end
-        else
-            puts "Session data exists"
-            puts "Session Email: #{session_email}"
-            puts "Session Password: #{session_password}"
-            sql = "SELECT * FROM personalinfo WHERE email = '#{session_email}'"
-            accountinfo = db.exec(sql)
-#
-              redirect '/account'
-        end
-    end
+#                 session[:email] = params[:email]
+#                 session[:password] = params[:password]
+#                 sql = "SELECT * FROM personalinfo WHERE email = '#{session_email}'"
+#                 accountinfo = db.exec(sql)
+# #                erb :account, locals: {account: account,account_info: account_info}
+#                 redirect '/account'
+#             end
+#         else
+#             puts "Session data exists"
+#             puts "Session Email: #{session_email}"
+#             puts "Session Password: #{session_password}"
+#             sql = "SELECT * FROM personalinfo WHERE email = '#{session_email}'"
+#             accountinfo = db.exec(sql)
+
+#               redirect '/account'
+#         end
+#     end
 
     #****FACEBOOK LOGIN****#
 
