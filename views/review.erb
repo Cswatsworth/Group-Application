@@ -5,8 +5,8 @@
     <form action="p_info" method="post">
         Personal Info Table
 
-    <p><table style="width:2%"></p>
-            <%accountinfo.each do |info| %>
+        <p><table style="width:100%"></p>
+        <%accountinfo.each do |info| %>
             <tr>
                 <th>First Name</th>
                 <td><%=info["first"] %></td>
@@ -41,9 +41,11 @@
             </tr>
 
             <%end%>
+     
 
-    </table>
-        <button type="submit" class="pure-button button-warning">Edit</button>
+    </table><button type="submit" class="pure-button button-warning">Edit</button>
+<hr>
+
     </form>
         <br>
     <form action="/questionpg1" method="post">
@@ -51,86 +53,109 @@
 
         Answers 1-10
 
-        <p><table></p>
-        <thead>
+        <p><table style="width:50%"></p>
+        <%accountinfo.each do |info| %>
             <tr>
-                <th>Question1</th>
-                <th>Question2</th>
-                <th>Question3</th>
-                <th>Question4</th>
-                <th>Question5</th>
-                <th>Question6</th>
-                <th>Question7</th>
-                <th>Question8</th>
-                <th>Question9</th>
-                <th>Question10</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <%accountinfo.each do |info| %>
-
-            <tr>
+                <th>Question1. </th>
                 <td><%=info["question1"] %></td>
+            </tr>
+            <tr>
+                <th>Question2</th>
                 <td><%=info["question2"] %></td>
+            </tr>
+            <tr>
+                <th>Question3</th>
                 <td><%=info["question3"] %></td>
+            </tr>
+            <tr>
+                <th>Question4</th>
                 <td><%=info["question4"] %></td>
+            </tr>
+            <tr>
+                <th>Question5</th>
                 <td><%=info["question5"] %></td>
+            </tr>
+            <tr>
+                <th>Question6</th>
                 <td><%=info["question6"] %></td>
+            </tr>
+            <tr>
+                <th>Question7</th>
                 <td><%=info["question7"] %></td>
+            </tr>
+            <tr>
+                <th>Question8</th>
                 <td><%=info["question8"] %></td>
+            </tr>
+            <tr>
+                <th>Question9</th>
                 <td><%=info["question9"] %></td>
+            </tr>
+            <tr>
+                <th>Question10</th>
                 <td><%=info["question10"] %></td>
             </tr>
 
 
             <%end%>
-        </tbody>
+        
     </table>
         <button type="submit" class="pure-button button-warning">Edit</button>
+<hr>
     </form>
         <br>
 
     <form action="/questionpg2" method="post">
         Questions 11-20
 
-        <p><table></p>
-        <thead>
+        <p><table style="width: 50%"></p>
+        <%accountinfo.each do |info| %>
             <tr>
                 <th>Question11</th>
-                <th>Question12</th>
-                <th>Question13</th>
-                <th>Question14</th>
-                <th>Question15</th>
-                <th>Question16</th>
-                <th>Question17</th>
-                <th>Question18</th>
-                <th>Question19</th>
-                <th>Question20</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <%accountinfo.each do |info| %>
-
-            <tr>
                 <td><%=info["question11"] %></td>
-                <td><%=info["question12"] %></td>
-                <td><%=info["question13"] %></td>
-                <td><%=info["question14"] %></td>
-                <td><%=info["question15"] %></td>
-                <td><%=info["question16"] %></td>
-                <td><%=info["question17"] %></td>
-                <td><%=info["question18"] %></td>
-                <td><%=info["question19"] %></td>
-                <td><%=info["question20"] %></td>
             </tr>
-
+            <tr>
+                <th>Question12</th>
+                <td><%=info["question12"] %></td>
+            </tr>
+            <tr>
+                <th>Question13</th>
+                <td><%=info["question12"] %></td>
+            </tr>
+            <tr>
+                <th>Question14</th>
+                <td><%=info["question12"] %></td>
+            </tr>
+            <tr>
+                <th>Question15</th>
+                <td><%=info["question12"] %></td>
+            </tr>
+            <tr>
+                <th>Question16</th>
+                <td><%=info["question12"] %></td>
+            </tr>
+            <tr>
+                <th>Question17</th>
+                <td><%=info["question12"] %></td>
+            </tr>
+            <tr>
+                <th>Question18</th>
+                <td><%=info["question12"] %></td>
+            </tr>
+            <tr>
+                <th>Question19</th>
+                <td><%=info["question12"] %></td>
+            </tr>
+            <tr>
+                <th>Question20</th>
+                <td><%=info["question12"] %></td>
+            </tr>
 
             <%end%>
-        </tbody>
     </table>
+
         <button type="submit" class="pure-button button-warning">Edit</button>
+<hr>
     </form>
         <br>
     <form action="/send_email" method="post">
