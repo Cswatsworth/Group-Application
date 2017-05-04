@@ -1,145 +1,151 @@
 <!-- Start Pure Form HTML -->
 <!-- <center> -->
-<div class="container rounded-green">
-<h3><strong>PLEASE ENTER CONTACT INFORMATION</h3></strong>
-<!-- <form class="pure-form pure-form-aligned"> -->
-<form action="/personalinfo" method="post" class="pure-form pure-form-aligned pure-controls">
-    <fieldset>
-        <div class="pure-control-group">
-            <label for="first">First Name</label>
-            <input id="first" name="first" type="text" placeholder="Your First Name" value=<%=session[:first]%>>
-            <span class="pure-form-message-inline">required</span>
-        </div>
+<div class="pure-g">
+   <!--  <div class="pure-u-3-5"> -->
+        <div class="container rounded-green pure-u-13-24">
 
-        <div class="pure-control-group">
-            <label for="last">Last Name</label>
-            <input id="last" name="last" type="text" placeholder="Your Last Name" value=<%=session[:last]%>>
-            <span class="pure-form-message-inline">required</span>
-        </div>
+            <center><h3><strong>PLEASE ENTER YOUR CONTACT INFORMATION</strong></h3></center>
+            <hr class="blue-spacer">
+            <!-- <form class="pure-form pure-form-aligned"> -->
+            <form action="/personalinfo" method="post" class="pure-form pure-form-aligned pure-controls">
+                <fieldset>
+                    <div class="pure-control-group">
+                        <label for="first">First Name</label>
+                        <input id="first" name="first" type="text" placeholder="Your First Name" value=<%=session[:first]%>>
+                        <span class="pure-form-message-inline">required</span>
+                    </div>
 
-        <div class="pure-control-group">
-            <label for="street">Address</label>
-            <input id="street" name="street" type="text" placeholder="Street" value=<%=session[:street]%>>
-            <span class="pure-form-message-inline">required</span>
-        </div>
+                    <div class="pure-control-group">
+                        <label for="last">Last Name</label>
+                        <input id="last" name="last" type="text" placeholder="Your Last Name" value=<%=session[:last]%>>
+                        <span class="pure-form-message-inline">required</span>
+                    </div>
 
-        <div class="pure-control-group" >
-            <label for="state">State</label>
-            <select id="state" name="state" value=<%=session[:state]%>>
-                <option>Select</option>
-                <option>Alaska</option>
-                <option>Alabama</option>
-                <option>Arkansas</option>
-                <option>Arizona</option>
-                <option>California</option>
-                <option>Colorado</option>
-                <option>Connecticut</option>
-                <option>District of Columbia</option>
-                <option>Delaware</option>
-                <option>Florida</option>
-                <option>Georgia</option>
-                <option>Hawaii</option>
-                <option>Iowa</option>
-                <option>Idaho</option>
-                <option>Illinois</option>
-                <option>Indiana</option>
-                <option>Kansas</option>
-                <option>Kentucky</option>
-                <option>Louisiana</option>
-                <option>Massachusetts</option>
-                <option>Maryland</option>
-                <option>Maine</option>
-                <option>Michigan</option>
-                <option>Minnesota</option>
-                <option>Missouri</option>
-                <option>Mississippi</option>
-                <option>Montana</option>
-                <option>North Carolina</option>
-                <option>North Dakota</option>
-                <option>Nebraska</option>
-                <option>New Hampshire</option>
-                <option>New Jersey</option>
-                <option>New Mexico</option>
-                <option>Nevada</option>
-                <option>New York</option>
-                <option>Ohio</option>
-                <option>Oklahoma</option>
-                <option>Oregon</option>
-                <option>Pennsylvania</option>
-                <option>Puerto Rico</option>
-                <option>Rhode Island</option>
-                <option>South Carolina</option>
-                <option>South Dakota</option>
-                <option>Tennessee</option>
-                <option>Texas</option>
-                <option>Utah</option>
-                <option>Virginia</option>
-                <option>Vermont</option>
-                <option>Washington</option>
-                <option>Wisconsin</option>
-                <option>West Virginia</option>
-                <option>Wyoming</option>
-            </select>
-            <span class="pure-form-message-inline">required</span>
-        </div>
+                    <div class="pure-control-group">
+                        <label for="street">Address</label>
+                        <input id="street" name="street" type="text" placeholder="Street" value=<%=session[:street]%>>
+                        <span class="pure-form-message-inline">required</span>
+                    </div>
 
-
-
-        <div class="pure-control-group">
-            <label for="city">City</label>
-            <input id="city" name="city" type="text" placeholder="City" value=<%=session[:city]%>>
-            <span class="pure-form-message-inline">required</span>
-        </div>
+                    <div class="pure-control-group" >
+                        <label for="state">State</label>
+                        <select id="state" name="state" value=<%=session[:state]%>>
+                            <option>Select</option>
+                            <option>Alaska</option>
+                            <option>Alabama</option>
+                            <option>Arkansas</option>
+                            <option>Arizona</option>
+                            <option>California</option>
+                            <option>Colorado</option>
+                            <option>Connecticut</option>
+                            <option>District of Columbia</option>
+                            <option>Delaware</option>
+                            <option>Florida</option>
+                            <option>Georgia</option>
+                            <option>Hawaii</option>
+                            <option>Iowa</option>
+                            <option>Idaho</option>
+                            <option>Illinois</option>
+                            <option>Indiana</option>
+                            <option>Kansas</option>
+                            <option>Kentucky</option>
+                            <option>Louisiana</option>
+                            <option>Massachusetts</option>
+                            <option>Maryland</option>
+                            <option>Maine</option>
+                            <option>Michigan</option>
+                            <option>Minnesota</option>
+                            <option>Missouri</option>
+                            <option>Mississippi</option>
+                            <option>Montana</option>
+                            <option>North Carolina</option>
+                            <option>North Dakota</option>
+                            <option>Nebraska</option>
+                            <option>New Hampshire</option>
+                            <option>New Jersey</option>
+                            <option>New Mexico</option>
+                            <option>Nevada</option>
+                            <option>New York</option>
+                            <option>Ohio</option>
+                            <option>Oklahoma</option>
+                            <option>Oregon</option>
+                            <option>Pennsylvania</option>
+                            <option>Puerto Rico</option>
+                            <option>Rhode Island</option>
+                            <option>South Carolina</option>
+                            <option>South Dakota</option>
+                            <option>Tennessee</option>
+                            <option>Texas</option>
+                            <option>Utah</option>
+                            <option>Virginia</option>
+                            <option>Vermont</option>
+                            <option>Washington</option>
+                            <option>Wisconsin</option>
+                            <option>West Virginia</option>
+                            <option>Wyoming</option>
+                        </select>
+                        <span class="pure-form-message-inline">required</span>
+                    </div>
 
 
-        <div class="pure-control-group">
-            <label for="zip">Zip / Postal Code</label>
-            <input id="zip" name="zip" type="text" placeholder="5 Digit Zip" value=<%=session[:city]%>>
-            <span class="pure-form-message-inline">required</span>
-        </div>
 
-        <div class="pure-control-group">
-            <label for="phonenumber">Phonenumber</label>
-            <input id="phonenumber" name="phonenumber" type="Digit" placeholder="+ (XXX) XXX-XXXX" value=<%=session[:phonenumber]%>>
-            <span class="pure-form-message-inline">required</span>
-        </div>
+                    <div class="pure-control-group">
+                        <label for="city">City</label>
+                        <input id="city" name="city" type="text" placeholder="City" value=<%=session[:city]%>>
+                        <span class="pure-form-message-inline">required</span>
+                    </div>
 
-        <div class="pure-control-group">
-            <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" placeholder="Email Address" value=<%=session[:email]%>>
-            <span class="pure-form-message-inline">required</span>
-        </div>
-        <div class="pure-control-group">
-            <label for="linkedin">LinkedIn</label>
-            <input id="linkedin" name="linkedin" type="text" placeholder="LinkedIn url" value=<%=session[:linkedin]%>>
-            <!-- <span class="pure-form-message-inline">required</span> -->
-        </div>
-        <div class="pure-control-group">
-            <label for="twitter">Twitter</label>
-            <input id="twitter" name="twitter" type="text" placeholder="Twitter Username" value=<%=session[:twitter]%>>
-          <!--   <span class="pure-form-message-inline">required</span> -->
-        </div>
-        <div class="pure-control-group">
-            <label for="facebook">Facebook</label>
-            <input id="facebook" name="facebook" type="text" placeholder="Facebook link" value=<%=session[:facebook]%>>
-            <!-- <span class="pure-form-message-inline">required</span> -->
-        </div>
-        <div class="pure-control-group">
-            <label for="github">Github</label>
-            <input id="github" name="github" type="text" placeholder="Github Username" value=<%=session[:github]%>>
-            <!-- <span class="pure-form-message-inline">required</span> -->
-        </div>
-        <div class="pure-control-group">
-            <label for="other">Other</label>
-            <input id="other" name="other" type="text" placeholder="Other url/social media" value=<%=session[:other]%>>
-            <!-- <span class="pure-form-message-inline">required</span> -->
-        </div>
 
-        <div class="pure-controls">
-            <button type="submit" class="pure-button button-go">Continue</button>
-            <button onclick="goBack()" class="pure-button btn-mm">Go Back</button>
+                    <div class="pure-control-group">
+                        <label for="zip">Zip / Postal Code</label>
+                        <input id="zip" name="zip" type="text" placeholder="5 Digit Zip" value=<%=session[:city]%>>
+                        <span class="pure-form-message-inline">required</span>
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label for="phonenumber">Phonenumber</label>
+                        <input id="phonenumber" name="phonenumber" type="Digit" placeholder="+ (XXX) XXX-XXXX" value=<%=session[:phonenumber]%>>
+                        <span class="pure-form-message-inline">required</span>
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label for="email">Email Address</label>
+                        <input id="email" name="email" type="email" placeholder="Email Address" value=<%=session[:email]%>>
+                        <span class="pure-form-message-inline">required</span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="linkedin">LinkedIn</label>
+                        <input id="linkedin" name="linkedin" type="text" placeholder="(Optional)" value=<%=session[:linkedin]%>>
+                        <!-- <span class="pure-form-message-inline">required</span> -->
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="twitter">Twitter</label>
+                        <input id="twitter" name="twitter" type="text" placeholder="(Optional)" value=<%=session[:twitter]%>>
+                      <!--   <span class="pure-form-message-inline">required</span> -->
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="facebook">Facebook</label>
+                        <input id="facebook" name="facebook" type="text" placeholder="(Optional)" value=<%=session[:facebook]%>>
+                        <!-- <span class="pure-form-message-inline">required</span> -->
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="github">Github</label>
+                        <input id="github" name="github" type="text" placeholder="(Optional)" value=<%=session[:github]%>>
+                        <!-- <span class="pure-form-message-inline">required</span> -->
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="other">Other</label>
+                        <input id="other" name="other" type="text" placeholder="(Optional)" value=<%=session[:other]%>>
+                        <!-- <span class="pure-form-message-inline">required</span> -->
+                    </div>
+
+                    <div class="pure-controls">
+                        <button type="submit" class="pure-button button-go">Continue</button>
+                        <button onclick="goBack()" class="pure-button btn-mm">Go Back</button>
+                    </div>
+                </fieldset>
+            </form>
         </div>
-    </fieldset>
-</form>
-<!-- </center> -->
+    </div>
+            <!-- </center> -->
 </div>
