@@ -1,52 +1,57 @@
-
 <center>
 <div id="review-header">Review and Finalize Application</div><br>
 <div class="container pure-controls rounded-green">
 
-	<form action="p_info" method="post">
-		Personal Info Table
+    <form action="p_info" method="post">
+        Personal Info Table
 
-				<p><table></p>
-        <thead>
+    <p><table style="width:2%"></p>
+            <%accountinfo.each do |info| %>
             <tr>
                 <th>First Name</th>
-                <th>Last Name</th>
-                <th>Street</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Zip</th>
-                <th>Phone Number</th>
-                <th>Email Address</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <%accountinfo.each do |info| %>
-
-            <tr>
                 <td><%=info["first"] %></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
                 <td><%=info["last"] %></td>
+            </tr>
+            <tr>
+                <th>Street</th>
                 <td><%=info["street"] %></td>
+            </tr>
+            <tr>
+                <th>City</th>
                 <td><%=info["city"] %></td>
+            </tr>
+            <tr>
+                <th>State</th>
                 <td><%=info["state"] %></td>
+            </tr>
+            <tr>
+                <th>Zip</th>
                 <td><%=info["zip"] %></td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
                 <td><%=info["phonenumber"] %></td>
+            </tr>
+            <tr>
+                <th>Email Address</th>
                 <td><%=info["email"] %></td>
             </tr>
 
-
             <%end%>
-        </tbody>
+
     </table>
-		<button type="submit" class="pure-button button-warning">Edit</button>
-	</form>
-		<br>
-	<form action="/questionpg1" method="post">
-		Question 1-10
+        <button type="submit" class="pure-button button-warning">Edit</button>
+    </form>
+        <br>
+    <form action="/questionpg1" method="post">
+        Question 1-10
 
-		Answers 1-10
+        Answers 1-10
 
-		<p><table></p>
+        <p><table></p>
         <thead>
             <tr>
                 <th>Question1</th>
@@ -82,14 +87,14 @@
             <%end%>
         </tbody>
     </table>
-		<button type="submit" class="pure-button button-warning">Edit</button>
-	</form>
-		<br>
+        <button type="submit" class="pure-button button-warning">Edit</button>
+    </form>
+        <br>
 
-	<form action="/questionpg2" method="post">
-		Questions 11-20
+    <form action="/questionpg2" method="post">
+        Questions 11-20
 
-		<p><table></p>
+        <p><table></p>
         <thead>
             <tr>
                 <th>Question11</th>
@@ -125,13 +130,13 @@
             <%end%>
         </tbody>
     </table>
-		<button type="submit" class="pure-button button-warning">Edit</button>
-	</form>
-		<br>
-	<form action="/send_email" method="post">
-		<button type="submit" class="pure-button button-go">Submit Application</button> OR
-		<button onclick="goBack()" class="pure-button btn-mm">Go Back</button>
-	</form>
+        <button type="submit" class="pure-button button-warning">Edit</button>
+    </form>
+        <br>
+    <form action="/send_email" method="post">
+        <button type="submit" class="pure-button button-go">Submit Application</button> OR
+        <button onclick="goBack()" class="pure-button btn-mm">Go Back</button>
+    </form>
 </div>
 </center>   
 
