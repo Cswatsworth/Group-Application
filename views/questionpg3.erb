@@ -2,86 +2,89 @@
     <form action="/questions2" method="post" class="pure-form">
     <p><h3>Questions #11-15, pg.3</h3></p>
     <!-- MULTIPLE ANSWER MULTIPLE CHOICE -->
-    <p>
+    <!-- <p>
         <div class="pure-controls">
              <button type="submit" class="pure-button button-go">Continue</button>
              <button onclick="goBack()" class="pure-button btn-mm">Go Back</button>
         </div>
+    </p> -->
+    <p>
+        <div required class="rounded-green question">
+            <p><STRONG>Question 11:</STRONG> What areas of study have you enjoyed most in the past? Check as many as you like.</p>
+                <fieldset>
+                    <p><input type="checkbox" name="question11" value="Art"> Art</p>
+                    <p><input type="checkbox" name="question11" value="Math"> Math</p>
+                    <p><input type="checkbox" name="question11" value="Science"> Science</p>
+                    <p><input type="checkbox" name="question11" value="History"> History</p>
+                    <p><input type="checkbox" name="question11" value="Social Studies"> Social Studies</p>
+                    <p><input type="checkbox" name="question11" value="Politics"> Politics</p>
+                </fieldset>
+        </div>
     </p>
-    <div required class="rounded-green question">
-        <p><STRONG>Question 11</STRONG>: Please check all that apply:</p>
-            <fieldset>
-                <p><input type="checkbox" name="question11" value="1"> Option 1</p>
-                <p><input type="checkbox" name="question11" value="2"> Option 2</p>
-                <p><input type="checkbox" name="question11" value="3"> Option 3</p>
-                <p><input type="checkbox" name="question11" value="4"> Option 4</p>
-                <p><input type="checkbox" name="question11" value="5"> Option 5</p>
-                <p><input type="checkbox" name="question11" value="6"> Option 6</p>
-                <p><input type="checkbox" name="question11" value="7"> Option 7</p>
-            </fieldset>
-    </div>
-    <br>
-    <div class="rounded-purple question">
-        <p><STRONG>Question 12</STRONG>: Please check all that apply:</p>
-            <fieldset>
-                <p><input type="checkbox" name="question12" value="1"> Option 1</p>
-                <p><input type="checkbox" name="question12" value="2"> Option 2</p>
-                <p><input type="checkbox" name="question12" value="3"> Option 3</p>
-                <p><input type="checkbox" name="question12" value="4"> Option 4</p>
-                <p><input type="checkbox" name="question12" value="5"> Option 5</p>
-                <p><input type="checkbox" name="question12" value="6"> Option 6</p>
-                <p><input type="checkbox" name="question12" value="7"> Option 7</p>
-            </fieldset>
-    </div>
-    <br>
-    <div class="rounded-green">
-        <p><STRONG>Question 13</STRONG>: Please check all that apply:</p>
-            <fieldset>
-                <p><input type="checkbox" name="question13" value="1"> Option 1</p>
-                <p><input type="checkbox" name="question13" value="2"> Option 2</p>
-                <p><input type="checkbox" name="question13" value="3"> Option 3</p>
-                <p><input type="checkbox" name="question13" value="4"> Option 4</p>
-                <p><input type="checkbox" name="question13" value="5"> Option 5</p>
-                <p><input type="checkbox" name="question13" value="6"> Option 6</p>
-                <p><input type="checkbox" name="question13" value="7"> Option 7</p>
-            </fieldset>
-    </div>
-    <br>
-    <div class="rounded-purple">
-        <p><STRONG>Question 14</STRONG>: Please check all that apply:</p>
-            <fieldset>
-                <p><input type="checkbox" name="question14" value="1"> Option 1</p>
-                <p><input type="checkbox" name="question14" value="2"> Option 2</p>
-                <p><input type="checkbox" name="question14" value="3"> Option 3</p>
-                <p><input type="checkbox" name="question14" value="4"> Option 4</p>
-                <p><input type="checkbox" name="question14" value="5"> Option 5</p>
-                <p><input type="checkbox" name="question14" value="6"> Option 6</p>
-                <p><input type="checkbox" name="question14" value="7"> Option 7</p>
-            </fieldset>
-    </div>
-    <br>
-    <div class="rounded-green">
-        <p><STRONG>Question 15</STRONG>: Please check all that apply:</p>
-            <fieldset>
-                <p><input type="checkbox" name="question15" value="1"> Option 1</p>
-                <p><input type="checkbox" name="question15" value="2"> Option 2</p>
-                <p><input type="checkbox" name="question15" value="3"> Option 3</p>
-                <p><input type="checkbox" name="question15" value="4"> Option 4</p>
-                <p><input type="checkbox" name="question15" value="5"> Option 5</p>
-                <p><input type="checkbox" name="question15" value="6"> Option 6</p>
-                <p><input type="checkbox" name="question15" value="7"> Option 7</p>
-            </fieldset>
-    </div>
-    <br>
+    <p>
+        <div class="rounded-purple">
+            <p><strong>Question 9:</strong> Please provide links to 2 sites for which you like the design, and find easy to use.</p>
+            <p>
+                <input name="question9" type="text" placeholder=" Link #1" class="short-answer-box">
+                </p>
+                <p>
+                <input name="question9" type="text" placeholder=" Link #2" class="short-answer-box">
+                </p>
+        </div>
+    </p>
+   <!--  <p>
+        <div class="rounded-green question">
+            <p><STRONG>Question 12:</STRONG>: Please check all that apply:</p>
+                <fieldset>
+                    <p><input type="checkbox" name="question12" value="1"> Option 1</p>
+                    <p><input type="checkbox" name="question12" value="2"> Option 2</p>
+                    <p><input type="checkbox" name="question12" value="3"> Option 3</p>
+                    <p><input type="checkbox" name="question12" value="4"> Option 4</p>
+                    <p><input type="checkbox" name="question12" value="5"> Option 5</p>
+                    <p><input type="checkbox" name="question12" value="6"> Option 6</p>
+                    <p><input type="checkbox" name="question12" value="7"> Option 7</p>
+                </fieldset>
+        </div>
+    </p>
+    <p>
+        <div class="rounded-purple">
+            <p><STRONG>Question 14</STRONG>: Please check all that apply:</p>
+                <fieldset>
+                    <p><input type="checkbox" name="question14" value="1"> Option 1</p>
+                    <p><input type="checkbox" name="question14" value="2"> Option 2</p>
+                    <p><input type="checkbox" name="question14" value="3"> Option 3</p>
+                    <p><input type="checkbox" name="question14" value="4"> Option 4</p>
+                    <p><input type="checkbox" name="question14" value="5"> Option 5</p>
+                    <p><input type="checkbox" name="question14" value="6"> Option 6</p>
+                    <p><input type="checkbox" name="question14" value="7"> Option 7</p>
+                </fieldset>
+        </div>
+    </p>
+    <p>
+        <div class="rounded-green">
+            <p><STRONG>Question 15</STRONG>: Please check all that apply:</p>
+                <fieldset>
+                    <p><input type="checkbox" name="question15" value="1"> Option 1</p>
+                    <p><input type="checkbox" name="question15" value="2"> Option 2</p>
+                    <p><input type="checkbox" name="question15" value="3"> Option 3</p>
+                    <p><input type="checkbox" name="question15" value="4"> Option 4</p>
+                    <p><input type="checkbox" name="question15" value="5"> Option 5</p>
+                    <p><input type="checkbox" name="question15" value="6"> Option 6</p>
+                    <p><input type="checkbox" name="question15" value="7"> Option 7</p>
+                </fieldset>
+        </div>
+    </p> -->
+    <p>
         <div class="pure-controls button-position">
             <div style='float: left';>
                 <button type="submit" class="pure-button button-go">Continue</button>
                 <button onclick="goBack()" class="pure-button btn-mm">Go Back</button>
             </div>
             <div style='float: right';>
-                <button type="submit" class="pure-button btn-mm">Save and Quit</button>
+                <button type="submit" class="pure-button btn-mm">Save and Review</button>
             </div>
         </div>
+    </p>
     </form>
 </div>
 
