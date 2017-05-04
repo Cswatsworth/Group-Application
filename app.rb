@@ -180,24 +180,27 @@ db = PG::Connection.new(db_params)
             p "Please Answer Atleast One!"
         end
 
-        redirect '/questionpg4'
-    end
-
-    get '/questionpg4' do
-        questions = db.exec("SELECT question16, question17, question18, question18, question20, email FROM personalinfo");
-        erb :questionpg4, locals: {questions: questions}
-    end
-
-    post '/questions3' do
-        session[:question16] = params[:question16]
-        session[:question17] = params[:question17]
-        session[:question18] = params[:question18]
-        session[:question19] = params[:question19]
-        session[:question20] = params[:question20]
-
-        db.exec("UPDATE personalinfo SET question16='#{session[:question16]}', question17='#{session[:question17]}', question18='#{session[:question18]}', question19='#{session[:question19]}', question20='#{session[:question20]}' WHERE email='#{session[:email]}'");
         redirect '/review'
     end
+
+
+##**FOR QUESTIONS 16-20 ^^WILL NEED TO CHANGE REDIRECT TO QUESTIONPG4**##
+    
+    # get '/questionpg4' do
+    #     questions = db.exec("SELECT question16, question17, question18, question18, question20, email FROM personalinfo");
+    #     erb :questionpg4, locals: {questions: questions}
+    # end
+
+    # post '/questions3' do
+    #     session[:question16] = params[:question16]
+    #     session[:question17] = params[:question17]
+    #     session[:question18] = params[:question18]
+    #     session[:question19] = params[:question19]
+    #     session[:question20] = params[:question20]
+
+    #     db.exec("UPDATE personalinfo SET question16='#{session[:question16]}', question17='#{session[:question17]}', question18='#{session[:question18]}', question19='#{session[:question19]}', question20='#{session[:question20]}' WHERE email='#{session[:email]}'");
+    #     redirect '/review'
+    # end
 
     get '/review' do
                 session_email = session[:email]
