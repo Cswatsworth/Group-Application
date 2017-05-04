@@ -1,0 +1,20 @@
+<body>
+<center><div class="container rounded-green pure-control-group">
+
+  <form action="/p_info" method="post">
+
+  <b><p>Please Enter Your Email and Password:
+
+      <b><p>Email:</p></b>
+      <p><input type="email" placeholder="Enter Email" name="email" required></p>
+      
+      <b><p>Create Password:</p></b>
+      <input type="password" placeholder="Enter Password" name="Must be Atleast 6 Characters" required></p>
+
+            <b><p>Re-Enter Password:</p></b>
+      <input type="password" placeholder="Enter Password" name="Re-enter Password" required></p>
+      <p><%=session[:message]%><p>
+
+
+      <p><button type="submit" class="button pure-button button-go">Sign-up</button></p>
+  </form>

@@ -2,7 +2,7 @@ require 'sinatra'
 require 'pg'
 require_relative 'functions.rb'
 require 'net/smtp'
-# require 'bcrypt'
+require 'bcrypt'
 
 
 load './local_env.rb' if File.exists?('./local_env.rb')
@@ -19,25 +19,50 @@ db = PG::Connection.new(db_params)
 
     enable :sessions
 
-     # get '/' do
-     #     session_email = session[:email]
-     #    session_password = session[:password]
-     #     if (session_email == nil || session_password == nil)
-     #         login = db.exec("SELECT email, password FROM login");
-     #         erb :login_erb, locals: {login: login}
-     #     else
-     #         redirect '/p_info'
-     #     end
-     # end
-
 
     get '/' do
-        login = db.exec("SELECT email, password FROM personalinfo");
-        erb :login_erb, locals: {login: login}
+        session[:email] = nil
+        session[:password] = nil
+        login = db.exec("SELECT email FROM personalinfo");
+        erb :login#, locals: {login: login}
     end
 
+    post '/login' do
+        session[:email] = nil
+        login = db.exec("SELECT email, password FROM personalinfo");
+        erb :login
+    end
 
-    post'/login' do
+    get '/login' do
+        session[:message] = nil
+        erb :login, locals: {message: ''}
+    end
+
+    get '/invalid_login' do 
+        message = 'You have entered an incorrect email or password.'
+        erb :login, locals: {message: message}
+    end
+
+    post '/check_login' do
+        session[:email] = params[:email]
+        if login_match?(session[:email], params[:password])
+            redirect '/account'
+        else
+            redirect '/invalid_login'
+        end
+    end
+
+    post '/create_account' do
+        redirect '/create_account'
+    end
+
+    get '/create_account' do
+        message1 = nil
+        message2 = nil
+        erb :create_account, locals: {message1: message1, message2: message2}
+    end
+
+    post'/p_info' do #was post to login
         session[:email] = params[:email]
         session[:password] = params[:password]
 

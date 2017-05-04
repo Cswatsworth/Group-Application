@@ -5,6 +5,10 @@ def valid_password?(password)
 	password.to_s.length > 5
 end
 
+def valid_credentials?(email, password)
+	valid_email?(email) && valid_password?(password)
+end
+
 def email_not_unique?(new_email)
 	db_params = {
     host: ENV['host'],
@@ -41,12 +45,11 @@ def login_match?(log_email, log_password)
 	
 	results = false
 
-	check_login = db.exec("SELECT email, password FROM personalinfo WHERE email = '#{session[:email]}' AND password='#{session[:password]}'")
+	check_login = db.exec("SELECT email, password FROM personalinfo WHERE email = '#{session[:email]}'")
 
     password = check_login[0]['password']
-    unhashed_pass = BCrypt::Password.new(password)
 
-    if check_login[0]['email'] == log_email &&  unhashed_pass == log_password
+    if check_login[0]['email'] == log_email && log_password
        results = true
     end      
 	results
