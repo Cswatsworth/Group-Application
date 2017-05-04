@@ -217,7 +217,7 @@ db = PG::Connection.new(db_params)
     end
 
 
-##**FOR QUESTIONS 16-20 ^^WILL NEED TO CHANGE REDIRECT TO QUESTIONPG4**##
+##************************** FOR QUESTIONS 16-20 ^^WILL NEED TO CHANGE REDIRECT TO QUESTIONPG4 **************************##
     
     # get '/questionpg4' do
     #     questions = db.exec("SELECT question16, question17, question18, question18, question20, email FROM personalinfo");
@@ -234,10 +234,9 @@ db = PG::Connection.new(db_params)
     #     db.exec("UPDATE personalinfo SET question16='#{session[:question16]}', question17='#{session[:question17]}', question18='#{session[:question18]}', question19='#{session[:question19]}', question20='#{session[:question20]}' WHERE email='#{session[:email]}'");
     #     redirect '/review'
     # end
-
+##************************************************************************************************************************##
     get '/review' do
-                session_email = session[:email]
-#        account_info = db.exec("SELECT * FROM public.personalinfo WHERE email='#{session[:email]}'")||''
+        session_email = session[:email]
         signin = db.exec("SELECT * FROM personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'");
         sql = "SELECT * FROM personalinfo WHERE email = '#{session[:email]}'"
             accountinfo = db.exec(sql)
@@ -249,8 +248,8 @@ db = PG::Connection.new(db_params)
     post '/send_email' do
 
         send_email
-        #Might need to tweak this to redirect to desired page or create an email successfully sent page
-        #have to change email settings to 'less secure apps'
+        
+##***have to change email settings to 'less secure apps'***##
         redirect '/complete'
     end
 
@@ -258,23 +257,6 @@ db = PG::Connection.new(db_params)
         erb :complete
 
     end
-
-    post '/check_login' do
-        session[:email] = params[:email]
-        if login_match?(session[:email], params[:password])
-            redirect '/account'
-        else
-            redirect '/invalid_login'
-        end
-    end
-
-    get '/invalid_login' do
-        session[:message] = 'The username or password you entered is incorrect.'
-        erb :login, locals: {message: message}  
-    end
-
-
-
 
     get '/account' do
         session_email = session[:email]
@@ -285,46 +267,7 @@ db = PG::Connection.new(db_params)
         erb :account, locals: {accountinfo: accountinfo}
     end
 
-
-
-#        post '/account' do
-#         session_email = session[:email]
-#         session_password = session[:password]
-#         if (session_email == nil || session_password == nil)
-#             email = params[:email]
-#             password = params[:password]
-#             sql = "SELECT email FROM personalinfo WHERE email = '#{session[:email]}' AND password = '#{password}'"
-#             puts "Email: #{session[:email]}"
-#             puts "Password: #{password}"
-#             puts sql
-#             account = db.exec(sql)||''
-#             if account.num_tuples == 0
-#                 puts "get out of here"
-#                 redirect '/account'
-#             else
-#                 puts "Sweet baby jesus"
-
-#                # hashed_password = BCrypt::Password.create("#{password}")
-
-#                 session[:email] = params[:email]
-#                 session[:password] = params[:password]
-#                 sql = "SELECT * FROM personalinfo WHERE email = '#{session_email}'"
-#                 accountinfo = db.exec(sql)
-# #                erb :account, locals: {account: account,account_info: account_info}
-#                 redirect '/account'
-#             end
-#         else
-#             puts "Session data exists"
-#             puts "Session Email: #{session_email}"
-#             puts "Session Password: #{session_password}"
-#             sql = "SELECT * FROM personalinfo WHERE email = '#{session_email}'"
-#             accountinfo = db.exec(sql)
-
-#               redirect '/account'
-#         end
-#     end
-
-    #****FACEBOOK LOGIN****#
+ #****FACEBOOK LOGIN****#
 
     get '/facebook' do
         session[:first] = params[:first_name]
@@ -345,32 +288,7 @@ db = PG::Connection.new(db_params)
 end
 
 
-#***DELETE FUNCTION*****
-    post '/delete_table' do
-        db.exec("DELETE FROM personalinfo WHERE email = '#{session[:email]}'");
-        db.exec("DELETE FROM personalinfo WHERE email ='#{session[:email]}'");
-        #***Must add an email field to the questions table for the below query to work***
-        db.exec("DELETE FROM personalinfo WHERE email = '#{session[:email]}'");
-        redirect '/'
-    end
-
-
-
-            #**PASSWORD HTML**#
-            # <script>
-            #     function badPass() {
-            #     alert("Password Does Not Meet Requirements");
-            #     }
-            # <script>
-
-
-
-
-
-
-
 ##**FUNCTIONS**##
-
 
 
 
