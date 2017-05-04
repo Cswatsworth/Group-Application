@@ -67,13 +67,16 @@
     height: auto;
     position: top left;
   }
-
 h2 {
   font-family: Helvetica;
   font-size: 50px;
   color: #03255b;
   }
-
+#h2-ahalf {
+font-family: Helvetica;
+  font-size: 40px;
+  color: #03255b;
+}
 h3 {
   font-family: Helvetica;
   color: #03255b;
