@@ -37,15 +37,14 @@ window.fbAsyncInit = function() {
           console.log(response.last_name);
           console.log(response.email);
           console.log(response.id);
-          var first_name = response.first_name;
-          var last_name = response.last_name;
+          var first = response.first_name;
+          var last = response.last_name;
           var email = response.email;
-          var fb_id = response.id;
 //          document.getElementById('first_name').value = first_name;
 //          document.getElementById('last_name').value = last_name;
 //          document.getElementById('email').value = email;
 //          document.getElementById('fb_id').value = fb_id;
-          window.location = "/facebook?email=" + email + "&first_name=" + first_name + "&last_name=" + last_name + "&fb_id=" + fb_id
+          window.location = "/p_info?email=" + email + "&first=" + first + "&last=" + last
 
         });
         

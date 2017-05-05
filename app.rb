@@ -100,8 +100,8 @@ db = PG::Connection.new(db_params)
         session[:email] = params[:email]
         session[:password] = params[:password]
 
-        first = ""
-        last = ""
+        first = params[:first] || ""
+        last = params[:last] || ""
         street = ""
         city = ""
         state = ""
@@ -133,13 +133,16 @@ db = PG::Connection.new(db_params)
         question19 = ""
         question20 = ""
         db.exec("INSERT INTO personalinfo(email,password, first, last, street, city, state, zip, phonenumber, linkedin, twitter, facebook, github, other, question1,question2,question3,question4,question5,question6,question7,question8,question9,question10,question11,question12,question13,question14,question15,question16,question17,question18,question19,question20) VALUES('#{session[:email]}','#{session[:password]}', '#{first}', '#{last}', '#{street}', '#{city}', '#{state}', '#{zip}', '#{phonenumber}', '#{linkedin}', '#{twitter}', '#{facebook}', '#{github}', '#{other}', '#{question1}', '#{question2}', '#{question3}', '#{question4}', '#{question5}','#{question6}', '#{question7}', '#{question8}', '#{question9}', '#{question10}', '#{question11}', '#{question12}', '#{question13}', '#{question14}', '#{question15}', '#{question16}', '#{question17}', '#{question18}', '#{question19}', '#{question20}')");
-        redirect '/p_info'
+        redirect '/p_info?email=' + email + "&first=" + first + "&last=" + last
         #end
     end
 
     get '/p_info' do
+        email = params[:email]
+        first = params[:first]
+        last = params[:last]
         personalinfo = db.exec("SELECT first, last, street, city, state, zip, phonenumber, email, linkedin, twitter, github, other FROM personalinfo");
-        erb :p_info, locals: {personalinfo: personalinfo}
+        erb :p_info, locals: {personalinfo: personalinfo, email: email, first: first, last: last}
     end
 
     post '/personalinfo' do
