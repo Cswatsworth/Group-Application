@@ -49,6 +49,7 @@ def login_match?(log_email, log_password)
 
     password = check_login[0]['password']
 
+
     if check_login[0]['email'] == log_email && log_password
        results = true
     end      

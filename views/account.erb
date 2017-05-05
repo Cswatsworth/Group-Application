@@ -1,66 +1,78 @@
-<div class="container">
+<center>
+<div id="review-header">Account Overview</div><br>
+<div class="container pure-controls rounded-green">
+
+<section>
     <form action="account" method="post">
 
-
-<p><table></p>
-        <thead>
+        <p><table></p>
+        <%accountinfo.each do |info| %>
             <tr>
                 <th>First Name</th>
-                <th>Last Name</th>
-                <th>Street</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Zip</th>
-                <th>Phone Number</th>
-                <th>Email Address</th>
-                <th>LinkedIn</th>
-                <th>Twitter</th>
-                <th>Facebook</th>
-                <th>Github</th>
-                <th>Other</th>
-
-
-
-            </tr>
-        </thead>
-        <tbody>
-
-            <%accountinfo.each do |info| %>
-
-            <tr>
                 <td><%=info["first"] %></td>
-                <td><%=info["last"] %></td>
-                <td><%=info["street"] %></td>
-                <td><%=info["city"] %></td>
-                <td><%=info["state"] %></td>
-                <td><%=info["zip"] %></td>
-                <td><%=info["phonenumber"] %></td>
-                <td><%=info["email"] %></td>
-                <td><%=info["linkedin"] %></td>
-                <td><%=info["twitter"] %></td>
-                <td><%=info["facebook"] %></td>
-                <td><%=info["github"] %></td>
-                <td><%=info["other"] %></td>
-                
             </tr>
-
+            <tr>
+                <th>Last Name</th>
+                <td><%=info["last"] %></td>
+            </tr>
+            <tr>
+                <th>Street</th>
+                <td><%=info["street"] %></td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td><%=info["city"] %></td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td><%=info["state"] %></td>
+            </tr>
+            <tr>
+                <th>Zip</th>
+                <td><%=info["zip"] %></td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td><%=info["phonenumber"] %></td>
+            </tr>
+            <tr>
+                <th>Email Address</th>
+                <td><%=info["email"] %></td>
+            </tr>
+            <tr>
+                <th>LinkedIn</th>
+                <td><%=info["linkedin"] %></td>
+            </tr>
+            <tr>
+                <th>Twitter</th>
+                <td><%=info["twitter"] %></td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td><%=info["facebook"] %></td>
+            </tr>
+            <tr>
+                <th>Github</th>
+                <td><%=info["github"] %></td>
+            </tr>
+            <tr>
+                <th>Other</th>
+                <td><%=info["other"] %></td>
+            </tr>
 
             <%end%>
-        </tbody>
-    </table>
 
+        </table>
+    <br>
+    </section> 
 
+        <button type="submit" class="pure-button btn-mm">Continue Application</button>
+</form>
+<p></p>
 
-
-
-
-
-
-    <p>
-        <a class="pure-button btn-mm" href="/p_info">Continue Application</a>
+        <form action="/save_quit" method="post">
         <button type="submit" class="pure-button btn-mm">Logout</button>
-        <a class="btn" href="/p_info">Continue Application</a>
-        <form action="/" method="post">
-        <button type="submit" class="button">Logout</button>
+        </form>
     </p>
+</div>
 </div>

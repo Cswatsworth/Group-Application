@@ -1,3 +1,4 @@
+
 require 'sinatra'
 require 'pg'
 require_relative 'functions.rb'
@@ -260,18 +261,68 @@ db = PG::Connection.new(db_params)
 
     get '/account' do
         session_email = session[:email]
-#        account_info = db.exec("SELECT * FROM public.personalinfo WHERE email='#{session[:email]}'")||''
-         signin = db.exec("SELECT * FROM personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'");
-        sql = "SELECT * FROM personalinfo WHERE email = '#{session[:email]}'"
-            accountinfo = db.exec(sql)
+        accountinfo = db.exec("SELECT * FROM public.personalinfo WHERE email='#{session[:email]}'")||''
+ #        signin = db.exec("SELECT * FROM personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'");
+        #sql = "SELECT * FROM personalinfo WHERE email = '#{session[:email]}'"
+            #accountinfo = db.exec(sql)
         erb :account, locals: {accountinfo: accountinfo}
     end
+
+    post '/account' do        
+         session_email = session[:email]     
+         session_password = session[:password]       
+         if (session_email == nil || session_password == nil)        
+              email = params[:email]      
+              password = params[:password]        
+              sql = "SELECT email FROM personalinfo WHERE email = '#{session[:email]}' AND password = '#{password}'"      
+        #      puts "Email: #{session[:email]}"        
+        #     puts "Password: #{password}"        
+        #     puts sql        
+             account = db.exec(sql)||''      
+            
+        #     if account.num_tuples == 0      
+        #         puts "get out of here"      
+        #             redirect '/p_info'     
+        #     else        
+        #         puts "something"
+                    redirect '/p_info'
+        end
+        
+        redirect '/p_info'
+    end
+
+
+    get '/edit_contact' do
+
+        session_email = session[:email]
+        #signin = db.exec("SELECT * FROM personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'");
+        #sql = "SELECT * FROM personalinfo WHERE email = '#{session[:email]}'"
+        #accountinfo = db.exec(sql)
+        erb :p_info, locals: {accountinfo: accountinfo}
+    end
+
+    post '/edit_contact' do
+        redirect '/p_info'
+    end
+
+    get '/edit_questions' do
+
+        #session_email = session[:email]
+        signin = db.exec("SELECT * FROM personalinfo WHERE email='#{session[:email]}' AND password='#{session[:password]}'");
+        #sql = "SELECT * FROM personalinfo WHERE email = '#{session[:email]}'"
+        #accountinfo = db.exec(sql)
+        erb :questionpg1, locals: {accountinfo: accountinfo}
+    end
+
+    post '/edit_questions' do
+        redirect '/questionpg1'
+    end
+
 
 
     post '/save_quit' do
         redirect '/'
     end
-
 
 
 
@@ -302,13 +353,12 @@ end
 
 
     def send_email()
-        domain = 'gmail.com' #leave alone
+        domain = 'gmail.com'
         from = 'mmapplicationgroup@gmail.com'
         to = [session[:email], from]
         username = from
         password = 'mmapplication2017'
-
-         msg = "Subject: Account Confirmation\n\n Hello!, '#{session[:first]}'. Thank you for completing the Mined Minds online application! For more information on Mined Minds visit their website at: http://www.minedminds.org/"
+        msg = "Subject: Account Confirmation\n\n Hello!, '#{session[:first]}'. Thank you for completing the Mined Minds online application! For more information on Mined Minds visit their website at: http://www.minedminds.org/"
         smtp = Net::SMTP.new 'smtp.gmail.com', 587
         smtp.enable_starttls
         smtp.start(domain, username, password, :login) do

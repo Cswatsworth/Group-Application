@@ -3,7 +3,7 @@
 <div class="container pure-controls rounded-green">
 
 <section>
-    <form action="p_info" method="post">
+    <form action="edit_contact" method="post">
         Contact Information 
 
         <p><table></p>
@@ -71,7 +71,7 @@
 </section>
         <br>
 <section> 
-    <form action="/questionpg1" method="post">
+    <form action="/edit_questions" method="post">
         Questions and Answers 1-12
 
         <p><table></p>
@@ -82,7 +82,7 @@
             </tr>
             <tr>
                 <th>Question2</th>
-                <td><%=info["question2"] %></td>
+                <td><%=info["question2"].to_s %></td>
             </tr>
             <tr>
                 <th>Question3</th>
@@ -118,7 +118,7 @@
             </tr>
             <tr>
                 <th>Question11</th>
-                <td><%=info["question11"] %></td>
+                <td><%=info["question11"].to_s %></td>
             </tr>
             <tr>
                 <th>Question12</th>
@@ -129,6 +129,7 @@
             <%end%>
         
     </table>
+    <br>
     <button type="submit" class="pure-button button-warning">Edit</button>
     
     </form>

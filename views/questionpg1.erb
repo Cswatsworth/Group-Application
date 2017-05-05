@@ -2,61 +2,6 @@
 	<form action="/questions" method="post"> -->
 		<!-- <p><h3>Questions #1-5, pg.1</h3></p> -->
 		<!-- MULTIPLE CHOICE -->
-		<!-- New Buttons -->
-		<!-- <p> -->
-		<!-- <div class="pure-controls">
-		 	<button type="submit" class="pure-button button-go">Continue</button>
-		 	<button onclick="goBack()" class="pure-button btn-mm">Go Back</button>
-		</div> -->
-		<!-- </p> -->
-
-		<!-- <div required class="rounded-green question">
-			<p><STRONG>Question 1</STRONG>: A, B, C or D?</p>
-			<p><input required type="radio" name="question1" value="lorem"> lorem</p>
-			<p><input type="radio" name="question1" value="ipsum"> ipsum</p>
-			<p><input type="radio" name="question1" value="dolor"> dolor</p>
-			<p><input type="radio" name="question1" value="sit"> sit</p>
-		</div>
-		<br>
-		<div class="rounded-purple question">
-			<p><strong>Question 2</strong>: A, B, C or D?</p>
-			<p><input type="radio" name="question2" value="amet"> amet</p>
-			<p><input type="radio" name="question2" value="consectetur"> consectetur</p>
-			<p><input type="radio" name="question2" value="adipiscing"> adipiscing</p>
-			<p><input type="radio" name="question2" value="elit"> elit</p>
-		</div>
-		<br>
-		<div class="rounded-green">
-			<p><STRONG>Question 3</STRONG>: A, B, C or D?</p>
-			<p><input type="radio" name="question3" value="amet"> amet</p>
-			<p><input type="radio" name="question3" value="consectetur"> consectetur</p>
-			<p><input type="radio" name="question3" value="adipiscing"> adipiscing</p>
-			<p><input type="radio" name="question3" value="elit"> elit</p>
-		</div>
-		<br>
-		<div class="rounded-purple">
-			<p><strong>Question 4</strong>: A, B, C or D?</p>
-			<p><input type="radio" name="question4" value="quisque"> quisque </p>
-			<p><input type="radio" name="question4" value="interdum"> interdum</p>
-			<p><input type="radio" name="question4" value="pretium"> pretium</p>
-			<p><input type="radio" name="question4" value="sollicitudin"> sollicitudin</p>
-		</div>
-		<br>
-		<div class="rounded-green">
-			<p><strong>Question 5</strong>: A, B, C or D?</p>
-			<p><input type="radio" name="question5" value="quisque"> quisque</p>
-			<p><input type="radio" name="question5" value="interdum"> interdum</p>
-			<p><input type="radio" name="question5" value="pretium"> pretium</p>
-			<p><input type="radio" name="question5" value="sollicitudin"> sollicitudin</p>
-		</div>
-		<br> -->
-		
-	<!-- </form>
-</div> -->
-
-
-<!-- Start client questions page 1
- -->
 <div class="container">
 	<form action="/questions" method="post">
 		<p><h3>Questions #1-5, pg.1</h3></p>
@@ -68,7 +13,7 @@
 		</p>
 		<div required class="rounded-green pure-control-group">
 	            <p><STRONG>Question 1:</STRONG> In a paragraph or so, tell us about yourself.</p>
-	                <textarea name="question1" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required></textarea>
+	                <textarea name="question1" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required value=<%=session[:question1]%>></textarea>
 	                <!-- <span class="pure-form-message-inline">required</span> -->
 	    </div>
 	    <p>
@@ -89,20 +34,20 @@
 	    <p>
 	    <div class="rounded-green">
 	        <p><STRONG>Question 3:</STRONG> Why do you want to learn to code?</p>
-	                <textarea name="question3" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required></textarea>
+	                <textarea name="question3" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required value=<%=session[:question3]%>></textarea>
 	                <!-- <span class="pure-form-message-inline">required</span> -->
 	    </div>
 	    </p>
 	    <p>
 	    <div class="rounded-purple">
 			<p><strong>Question 4:</strong> Why are you interested in the training?</p>
-				<textarea name="question4" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required></textarea>
+				<textarea name="question4" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required value=<%=session[:question4]%>></textarea>
 		</div>
 		</p>
 	    <p>
 		<div class="rounded-green">
 			<p><strong>Question 5:</strong> Describe a time when you felt successful.</p>
-				<textarea name="question5" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required></textarea>
+				<textarea name="question5" type="text" placeholder=" Must be between 1 and 1000 characters" class="answer-box" required value=<%=session[:question5]%>></textarea>
 		</div>
 		</p>
 		<p>
